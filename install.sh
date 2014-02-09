@@ -12,11 +12,11 @@ do
   test $file == "." && continue
   test $file == ".." && continue
  
-  # .hogehogeが存在しなければ、シンボリックリンクを作成
   if [ ! -e "${homefile}" ]; then
      echo "${file} not exis, make symbolic link to ${homefile}"
-     ln -s "${filepath}" "${homefile}"
   else
-     echo "${file} exist"
+     echo "${file} exist. then rm ${homefile} and make sysmbolic link from ${filepath} "
+     rm "${homefile}"
   fi
+  ln -s "${filepath}" "${homefile}"
 done
