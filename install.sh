@@ -1,11 +1,11 @@
 #!/bin/bash
  
-files=.*
+files=("gitconfig" "vimrc" "zshrc")
  
-for file in ${files}
+for file in ${files[*]}
 do
    filepath="${PWD}/${file}"
-   homefile="${HOME}/${file}"
+   homefile="${HOME}/.${file}"
  
   # . と .. .git は抜かす
   test $file == ".git" && continue
