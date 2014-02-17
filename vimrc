@@ -81,3 +81,5 @@ au BufNewFile,BufRead *.hbs set filetype=html
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+set imdisable
