@@ -15,6 +15,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle "Shougo/neocomplete.vim"
 NeoBundle "jiangmiao/simple-javascript-indenter"
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'szw/vim-tags'
 
 filetype plugin indent on     " required!
 filetype indent on

@@ -10,6 +10,7 @@ alias ll="ls -GFl"
 alias la="ls -GFla"
 alias gvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
 
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
