@@ -15,6 +15,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle "Shougo/neocomplete.vim"
 NeoBundle "jiangmiao/simple-javascript-indenter"
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'nono/vim-handlebars'
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -75,7 +76,7 @@ let g:SimpleJsIndenter_BriefMode = 1
 let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 " hbsファイルにhtmlのシンタックスが効くように設定
-au BufNewFile,BufRead *.hbs set filetype=html
+""au BufNewFile,BufRead *.hbs set filetype=html
 
 " インデントの設定
 set tabstop=4
