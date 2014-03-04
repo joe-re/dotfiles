@@ -15,6 +15,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle "Shougo/neocomplete.vim"
 NeoBundle "jiangmiao/simple-javascript-indenter"
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'szw/vim-tags'
 NeoBundle 'nono/vim-handlebars'
 
 filetype plugin indent on     " required!
@@ -85,14 +86,33 @@ set expandtab
 
 set imdisable
 
-augroup HighlightTrailingSpaces
-  autocmd!
-  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
-  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-augroup END
 scriptencoding utf-8
-augroup highlightDoubleByteSpace
-  autocmd!
-  autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
-  autocmd VimEnter,WinEnter * match DoubleByteSpace /　/
-augroup END
+" augroup highlightSpaces
+"   autocmd!
+"   autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
+"   autocmd VimEnter,WinEnter * matchadd(DoubleByteSpace "　")
+"
+"   autocmd VimEnter,ColorScheme * highlight trailingspaces term=underline guibg=red ctermbg=red
+"   autocmd VimEnter,WinEnter * matchadd(TrailingSpaces "\s\+$")
+" augroup END
+":highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
+"call matchadd("DoubleByteSpace","　")
+
+":highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+"call matchadd("TrailingSpaces", ' +$')
+
+" 行末の空白文字を可視化
+highlight WhitespaceEOL term=underline ctermbg=red guibg=red
+au BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
+au WinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
+
+" 行頭のTAB文字を可視化
+highlight TabString ctermbg=red guibg=red
+au BufWinEnter * let w:m2 = matchadd("TabString", '^\t+')
+au WinEnter * let w:m2 = matchadd("TabString", '^\t+')
+
+" 全角スペースの表示
+highlight ZenkakuSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
+    au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
+
+au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')

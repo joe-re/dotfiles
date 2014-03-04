@@ -4,6 +4,7 @@ helper = /opt/boxen/bin/boxen-git-credential
 
 [core]
 excludesfile = /opt/boxen/config/git/gitignore
+	editor = /Applications/MacVim.app/Contents/MacOS/Vim
 
 [hub]
 protocol = https
@@ -14,5 +15,6 @@ email = "joe.tialtngo@gmail.com"
 
 [color]
 ui = auto
+
 [push]
-	default = simple
+default = simple
