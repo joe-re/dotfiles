@@ -85,3 +85,15 @@ set shiftwidth=4
 set expandtab
 
 set imdisable
+
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
+scriptencoding utf-8
+augroup highlightDoubleByteSpace
+  autocmd!
+  autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
+  autocmd VimEnter,WinEnter * match DoubleByteSpace /　/
+augroup END
