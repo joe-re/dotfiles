@@ -86,14 +86,19 @@ set expandtab
 
 set imdisable
 
-augroup HighlightTrailingSpaces
-  autocmd!
-  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
-  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-augroup END
 scriptencoding utf-8
-augroup highlightDoubleByteSpace
-  autocmd!
-  autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
-  autocmd VimEnter,WinEnter * match DoubleByteSpace /　/
-augroup END
+" 行末の空白文字を可視化
+highlight WhitespaceEOL term=underline ctermbg=red guibg=red
+au BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
+au WinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
+
+" 行頭のTAB文字を可視化
+highlight TabString ctermbg=red guibg=red
+au BufWinEnter * let w:m2 = matchadd("TabString", '^\t+')
+au WinEnter * let w:m2 = matchadd("TabString", '^\t+')
+
+" 全角スペースの表示
+highlight ZenkakuSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
+    au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
+
+au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
