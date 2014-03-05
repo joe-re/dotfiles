@@ -3,18 +3,24 @@
 helper = /opt/boxen/bin/boxen-git-credential
 
 [core]
-excludesfile = /opt/boxen/config/git/gitignore
+	excludesfile = /opt/boxen/config/git/gitignore
 	editor = /Applications/MacVim.app/Contents/MacOS/Vim
 
 [hub]
 protocol = https
 
 [user]
-name = "joe1014"
-email = "joe.tialtngo@gmail.com"
+	name = joe1014
+	email = joe.tialtngo@gmail.com
 
 [color]
 ui = auto
 
 [push]
 default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
