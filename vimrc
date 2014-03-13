@@ -15,8 +15,9 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle "Shougo/neocomplete.vim"
 NeoBundle "jiangmiao/simple-javascript-indenter"
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'szw/vim-tags'
 NeoBundle 'nono/vim-handlebars'
+NeoBundle "kana/vim-smartinput"
+NeoBundle "cohama/vim-smartinput-endwise"
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -99,6 +100,7 @@ au WinEnter * let w:m2 = matchadd("TabString", '^\t+')
 
 " 全角スペースの表示
 highlight ZenkakuSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
-    au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
-
+au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
+
+call smartinput_endwise#define_default_rules()
