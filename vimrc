@@ -104,3 +104,4 @@ au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
 call smartinput_endwise#define_default_rules()
+source $VIMRUNTIME/macros/matchit.vim
