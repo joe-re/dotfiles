@@ -156,11 +156,10 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
+source /opt/boxen/env.sh
 
 ## z easy jump dir
 . `brew --prefix`/etc/profile.d/z.sh
     function precmd () {
     _z --add "$(pwd -P)"
 }
-
-source /opt/boxen/env.sh
