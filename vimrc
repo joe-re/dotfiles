@@ -18,6 +18,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'nono/vim-handlebars'
 NeoBundle "kana/vim-smartinput"
 NeoBundle "cohama/vim-smartinput-endwise"
+NeoBundle 'szw/vim-tags'
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -105,3 +106,7 @@ au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
 call smartinput_endwise#define_default_rules()
 source $VIMRUNTIME/macros/matchit.vim
+
+let g:vim_tags_project_tags_command = "/Applications/MacVim.app/Contents/MacOS/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+let g:vim_tags_gems_tags_command = "/Applications/MacVim.app/Contents/MacOS/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
+
