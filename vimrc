@@ -117,3 +117,5 @@ source $VIMRUNTIME/macros/matchit.vim
 let g:vim_tags_project_tags_command = "/Applications/MacVim.app/Contents/MacOS/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
 let g:vim_tags_gems_tags_command = "/Applications/MacVim.app/Contents/MacOS/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
 
+set backupdir=$HOME/.vim-backup
+set directory=$HOME/.vim-backup
