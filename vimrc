@@ -19,6 +19,8 @@ NeoBundle 'nono/vim-handlebars'
 NeoBundle "kana/vim-smartinput"
 NeoBundle "cohama/vim-smartinput-endwise"
 NeoBundle 'szw/vim-tags'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -112,6 +114,7 @@ au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
 call smartinput_endwise#define_default_rules()
+
 source $VIMRUNTIME/macros/matchit.vim
 
 let g:vim_tags_project_tags_command = "/Applications/MacVim.app/Contents/MacOS/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
@@ -119,3 +122,7 @@ let g:vim_tags_gems_tags_command = "/Applications/MacVim.app/Contents/MacOS/ctag
 
 set backupdir=$HOME/.vim-backup
 set directory=$HOME/.vim-backup
+
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
