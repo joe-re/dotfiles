@@ -16,11 +16,10 @@ NeoBundle "Shougo/neocomplete.vim"
 NeoBundle "jiangmiao/simple-javascript-indenter"
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'nono/vim-handlebars'
-NeoBundle "kana/vim-smartinput"
-NeoBundle "cohama/vim-smartinput-endwise"
 NeoBundle 'szw/vim-tags'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'tpope/vim-endwise'
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -112,8 +111,6 @@ au WinEnter * let w:m2 = matchadd("TabString", '^\t+')
 highlight ZenkakuSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
 au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
-
-call smartinput_endwise#define_default_rules()
 
 source $VIMRUNTIME/macros/matchit.vim
 
