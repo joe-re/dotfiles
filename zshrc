@@ -149,3 +149,8 @@ source /opt/boxen/env.sh
     function precmd () {
     _z --add "$(pwd -P)"
 }
+
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+
+autoload -U compinit
+compinit -u
