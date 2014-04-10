@@ -20,6 +20,7 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'scrooloose/syntastic'
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -133,3 +134,8 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+" let g:syntastic_quiet_messages = {'level': 'warnings'}
