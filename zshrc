@@ -154,3 +154,4 @@ fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 autoload -U compinit
 compinit -u
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux

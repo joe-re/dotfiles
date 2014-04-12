@@ -120,6 +120,7 @@ let g:vim_tags_gems_tags_command = "/Applications/MacVim.app/Contents/MacOS/ctag
 
 set backupdir=$HOME/.vim-backup
 set directory=$HOME/.vim-backup
+set nobackup
 
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
@@ -139,3 +140,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 " let g:syntastic_quiet_messages = {'level': 'warnings'}
+"
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
