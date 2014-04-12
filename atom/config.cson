@@ -1,0 +1,22 @@
+'exception-reporting':
+  'userId': '40fb6deb-cf07-4464-ed2d-e7d3ba669f9e'
+'release-notes':
+  'viewedVersion': '0.85.0'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': '6f6981c0350a295299c4f732e8c00c109c3e2d26'
+'editor':
+  'fontSize': 11
+'core':
+  'themes': [
+    'atom-light-ui'
+    'fizzy'
+  ]
+  'ignoredNames': [
+    '.git'
+    '.svn'
+    '.DS_Store'
+  ]
+'feedback':
+  'email': 'joe.tialtngo@gmail.com'
