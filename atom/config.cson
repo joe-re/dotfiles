@@ -8,6 +8,8 @@
   'userId': '6f6981c0350a295299c4f732e8c00c109c3e2d26'
 'editor':
   'fontSize': 11
+  'showIndentGuide': true
+  'showInvisibles': true
 'core':
   'themes': [
     'atom-light-ui'
@@ -20,3 +22,5 @@
   ]
 'feedback':
   'email': 'joe.tialtngo@gmail.com'
+'autocomplete-plus':
+  'enableAutoActivation': false
