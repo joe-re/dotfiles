@@ -120,7 +120,7 @@ let g:vim_tags_gems_tags_command = "/Applications/MacVim.app/Contents/MacOS/ctag
 
 set backupdir=$HOME/.vim-backup
 set directory=$HOME/.vim-backup
-set nobackup
+set noswapfile
 
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
