@@ -1,7 +1,6 @@
 set nocompatible               " be iMproved
 filetype off
 
-
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle/'))
@@ -67,6 +66,7 @@ endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+let neocomplete#enable_insert_char_pre=1 "インサートモード時のカーソル移動で補完されないようにする。
 
 " 行番号を表示
 set number
@@ -145,3 +145,12 @@ augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
+
+" 挿入モードでのカーソル移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-a> <HOME>
+inoremap <C-e> <END>
+
