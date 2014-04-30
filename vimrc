@@ -20,6 +20,7 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'h1mesuke/unite-outline'
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -155,3 +156,5 @@ inoremap <C-l> <Right>
 inoremap <C-a> <HOME>
 inoremap <C-e> <END>
 
+let g:unite_split_rule = 'botright'
+noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
