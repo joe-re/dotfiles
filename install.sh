@@ -1,6 +1,6 @@
 #!/bin/bash
  
-files=("gitconfig" "vimrc" "zshrc" "ctags" "tmux.conf" "atom" "zprofile" "vrapperrc" "rubocop.yml")
+files=("gitconfig" "vimrc" "zshrc" "ctags" "tmux.conf" "atom" "zprofile" "vrapperrc" "rubocop.yml", "oh-my-zsh")
  
 for file in ${files[*]}
 do
