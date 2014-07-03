@@ -158,3 +158,8 @@ inoremap <C-e> <END>
 
 let g:unite_split_rule = 'botright'
 noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
+
+"clipboardに入らないようにする
+"use black hole register
+noremap c "_c
+noremap C "_C
