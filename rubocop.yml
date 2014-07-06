@@ -4,3 +4,28 @@ AsciiComments:
 
 LineLength:
   Enabled: false
+
+Style/LineLength:
+  Max: 180
+
+# Missing top-level class documentation comment
+Style/Documentation:
+  Enabled: false
+
+# 配列末尾のカンマとか
+Style/TrailingComma:
+  Enabled: false
+
+# Use only ascii symbols in comments.
+Style/AsciiComments:
+  Enabled: false
+
+# if hoge = hash[:hoge]
+#   method(hoge)
+# end
+# みたいなの
+Lint/AssignmentInCondition:
+  Enabled: false
+
+PerlBackrefs:
+  Enabled: false
