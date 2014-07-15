@@ -163,3 +163,5 @@ noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
 "use black hole register
 noremap c "_c
 noremap C "_C
+
+nnoremap ; :
