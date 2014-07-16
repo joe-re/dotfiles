@@ -21,6 +21,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'tpope/vim-surround'
 
 filetype plugin indent on     " required!
 filetype indent on
