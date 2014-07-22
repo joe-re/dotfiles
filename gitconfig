@@ -10,7 +10,7 @@ helper = /opt/boxen/bin/boxen-git-credential
 protocol = https
 
 [user]
-	name = joe1014
+	name = joe-re
 	email = joe.tialtngo@gmail.com
 
 [color]

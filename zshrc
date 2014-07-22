@@ -62,6 +62,7 @@ alias g='cd $(ghq list -p | peco)'
 export PATH="node_modules/.bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/rbenv/plugins/ruby-build/bin:/opt/boxen/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:node_modules/.bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/rbenv/plugins/ruby-build/bin:/opt/boxen/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/Users/masatonoguchi/.plenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:node_modules/.bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/rbenv/plugins/ruby-build/bin:/opt/boxen/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin"
 
 export PATH=$PATH:$GOPATH/bin
+export PGDATA=/usr/local/var/postgres
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -92,3 +93,7 @@ autoload -U compinit
 compinit -u
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export SECRET_KEY_BASE="b0d91c53ae636693ede9077e5db89efed0c259a692e7652290a502a5caa413ee5f0d81e86fb813a63f1b37dcc8f2b4cfed0bed1edb9238c979d9dc0691cdf605"
