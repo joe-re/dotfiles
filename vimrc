@@ -24,6 +24,7 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-operator-replace.git'
 NeoBundle 'kana/vim-operator-user.git'
+NeoBundle 'terryma/vim-multiple-cursors'
 
 filetype plugin indent on     " required!
 filetype indent on
