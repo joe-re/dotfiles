@@ -165,4 +165,7 @@ noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
 noremap c "_c
 noremap C "_C
 
+set hlsearch
+nmap <Esc><Esc> :nohlsearch<CR>
+
 nnoremap ; :
