@@ -22,6 +22,8 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'kana/vim-operator-replace.git'
+NeoBundle 'kana/vim-operator-user.git'
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -165,7 +167,11 @@ noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
 noremap c "_c
 noremap C "_C
 
+" ESC2回でハイライトを消す
 set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR>
 
 nnoremap ; :
+
+" yankした文字をテキストオブジェクトを使ってリプレイスできるようにする
+map R  <Plug>(operator-replace)
