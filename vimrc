@@ -25,6 +25,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-operator-replace.git'
 NeoBundle 'kana/vim-operator-user.git'
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'othree/html5.vim'
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -88,16 +89,22 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 " hbsファイルにhtmlのシンタックスが効くように設定
 ""au BufNewFile,BufRead *.hbs set filetype=html
 
+" html5に対応
+let g:html5_event_handler_attributes_complete = 1
+let g:html5_rdfa_attributes_complete = 1
+let g:html5_microdata_attributes_complete = 1
+let g:html5_aria_attributes_complete = 1
+
 " インデントの設定
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
 augroup vimrc
     autocmd! FileType perl setlocal shiftwidth=4 tabstop=2 softtabstop=2
     autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd! FileType css  setlocal shiftwidth=4 tabstop=2 softtabstop=2
     autocmd! FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd! FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd! FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
