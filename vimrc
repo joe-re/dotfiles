@@ -7,7 +7,14 @@ if has('vim_starting')
 endif
 " originalrepos on github
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ }
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
@@ -195,3 +202,11 @@ call submode#map('winsize', 'n', '', 'L', '<C-w>>')
 call submode#map('winsize', 'n', '', 'H', '<C-w><')
 call submode#map('winsize', 'n', '', 'J', '<C-w>+')
 call submode#map('winsize', 'n', '', 'K', '<C-w>-')
+
+" grepにptを使う
+nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer -no-quit -winheight=10<CR>
+if executable('pt')
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+  let g:unite_source_grep_recursive_opt = ''
+endif
