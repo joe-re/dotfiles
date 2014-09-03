@@ -25,6 +25,7 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-operator-replace.git'
 NeoBundle 'kana/vim-operator-user.git'
+NeoBundle 'kana/vim-submode'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'othree/html5.vim'
 
@@ -184,3 +185,13 @@ nnoremap ; :
 
 " yankした文字をテキストオブジェクトを使ってリプレイスできるようにする
 map R  <Plug>(operator-replace)
+
+" Window Sizeの変更モードを定義
+call submode#enter_with('winsize', 'n', '', '<C-w>L', '<C-w>>')
+call submode#enter_with('winsize', 'n', '', '<C-w>H', '<C-w><')
+call submode#enter_with('winsize', 'n', '', '<C-w>J', '<C-w>+')
+call submode#enter_with('winsize', 'n', '', '<C-w>K', '<C-w>-')
+call submode#map('winsize', 'n', '', 'L', '<C-w>>')
+call submode#map('winsize', 'n', '', 'H', '<C-w><')
+call submode#map('winsize', 'n', '', 'J', '<C-w>+')
+call submode#map('winsize', 'n', '', 'K', '<C-w>-')
