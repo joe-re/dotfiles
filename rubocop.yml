@@ -5,7 +5,7 @@ AsciiComments:
 LineLength:
   Enabled: false
 
-Style/LineLength:
+Metrics/LineLength:
   Max: 180
 
 # Missing top-level class documentation comment
