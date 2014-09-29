@@ -35,6 +35,7 @@ NeoBundle 'kana/vim-operator-user.git'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'h1mesuke/vim-alignta'
 
 filetype plugin indent on     " required!
 filetype indent on
