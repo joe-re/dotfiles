@@ -36,6 +36,7 @@ NeoBundle 'kana/vim-submode'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'itchyny/calendar.vim'
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -158,7 +159,7 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 "nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 "nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
-nnoremap <silent> ,ur :<C-u>Unite file_rec<CR>
+nnoremap <silent> ,ur :<C-u>Unite file_rec/async<CR>
 
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': ['ruby'] }
@@ -212,3 +213,6 @@ if executable('pt')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor'
   let g:unite_source_grep_recursive_opt = ''
 endif
+
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
