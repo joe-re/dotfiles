@@ -5,6 +5,8 @@ helper = /opt/boxen/bin/boxen-git-credential
 [core]
 	excludesfile = /opt/boxen/config/git/gitignore
 	editor = /Applications/MacVim.app/Contents/MacOS/Vim
+	quotepath = false
+	precomposeunicode = true
 
 [hub]
 protocol = https
