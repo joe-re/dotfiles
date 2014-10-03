@@ -37,6 +37,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'itchyny/calendar.vim'
+NeoBundle 'mhinz/vim-signify'
 
 filetype plugin indent on     " required!
 filetype indent on
