@@ -31,4 +31,15 @@ else
   echo "made dir: ${vim_backup_dir}"
 fi
 
+# neobundle install
+neobundle_dir=~/.vim/bundle
+if test -e "${neobundle_dir}"; then
+  echo "${neobundle_dir} is exists"
+else
+  mkdir -p ${neobundle_dir}
+  git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  echo "installed neobundle"
+fi
+
+
 echo "completed!"
