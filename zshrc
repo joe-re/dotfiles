@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 alias gvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias vim="/usr/local/Cellar/vim/7.4.488/bin/vim"
 alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
 export GOPATH=$HOME/go
 alias g='cd $(ghq list -p | peco)'
