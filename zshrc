@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="avit"
+ZSH_THEME="gallois"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -51,6 +51,8 @@ ZSH_THEME="avit"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+export LC_CTYPE=UTF-8
+export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/noguchimasato/go/bin:/usr/local/bin:/Users/noguchimasato/go/bin"
 
 # User configuration
 alias gvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
@@ -90,5 +92,4 @@ compinit -u
 
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 export SECRET_KEY_BASE="b0d91c53ae636693ede9077e5db89efed0c259a692e7652290a502a5caa413ee5f0d81e86fb813a63f1b37dcc8f2b4cfed0bed1edb9238c979d9dc0691cdf605"

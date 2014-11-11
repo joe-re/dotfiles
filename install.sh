@@ -1,11 +1,21 @@
 #!/bin/bash
 set -e
+
+# oh-my-zsh install
+oh_my_sh=~/.oh-my-zsh/oh-my-zsh.sh
+if test -e "${oh_my_sh}"; then
+  echo "${oh_my_sh} is exists"
+else
+  curl -L http://install.ohmyz.sh | sh
+  echo "installed oh-my-zsh"
+fi
+
 # brew bundle 叩く
 brew bundle || true
 
 # 設定ファイルのシンボリックを作成
 echo "start to make sym link"
-files=("gitconfig" "vimrc" "zshrc" "ctags" "tmux.conf" "atom" "zprofile" "vrapperrc" "rubocop.yml", "oh-my-zsh", "z")
+files=("gitconfig" "vimrc" "zshrc" "ctags" "tmux.conf" "atom" "zprofile" "vrapperrc" "rubocop.yml" "z")
 
 # to home dir
 for file in ${files[*]}
@@ -40,6 +50,5 @@ else
   git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
   echo "installed neobundle"
 fi
-
 
 echo "completed!"
