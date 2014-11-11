@@ -51,4 +51,9 @@ else
   echo "installed neobundle"
 fi
 
+# go modules install
+go get github.com/motemen/ghq
+go get github.com/lestrrat/peco/cmd/peco/
+echo "installed go modules"
+
 echo "completed!"
