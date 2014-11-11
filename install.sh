@@ -2,9 +2,9 @@
 set -e
 
 # oh-my-zsh install
-oh_my_sh=~/.oh-my-zsh/oh-my-zsh.sh
-if test -e "${oh_my_sh}"; then
-  echo "${oh_my_sh} is exists"
+oh_my_zsh=~/.oh-my-zsh/oh-my-zsh.sh
+if test -e "${oh_my_zsh}"; then
+  echo "${oh_my_zsh} is exists"
 else
   curl -L http://install.ohmyz.sh | sh
   echo "installed oh-my-zsh"
