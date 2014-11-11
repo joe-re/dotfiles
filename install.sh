@@ -15,7 +15,7 @@ brew bundle || true
 
 # 設定ファイルのシンボリックを作成
 echo "start to make sym link"
-files=("gitconfig" "vimrc" "zshrc" "ctags" "tmux.conf" "atom" "zprofile" "vrapperrc" "rubocop.yml" "z")
+files=("gitconfig" "vimrc" "zshrc" "ctags" "tmux.conf" "zprofile" "vrapperrc" "rubocop.yml" "z")
 
 # to home dir
 for file in ${files[*]}
