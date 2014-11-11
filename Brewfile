@@ -15,6 +15,7 @@ install reattach-to-user-namespace
 install z
 install node
 install tig
+install pt
 
 cask install iterm2
 cask install java
