@@ -14,6 +14,7 @@ install tmux
 install reattach-to-user-namespace
 install z
 install node
+install tig
 
 cask install iterm2
 cask install java
