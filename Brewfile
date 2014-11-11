@@ -13,6 +13,7 @@ install vim --with-lua
 install tmux
 install reattach-to-user-namespace
 install z
+install node
 
 cask install iterm2
 cask install java
