@@ -59,8 +59,6 @@ alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
 export GOPATH=$HOME/go
 alias g='cd $(ghq list -p | peco)'
 
-export PATH="node_modules/.bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/rbenv/plugins/ruby-build/bin:/opt/boxen/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:node_modules/.bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/rbenv/plugins/ruby-build/bin:/opt/boxen/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/Users/masatonoguchi/.plenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:node_modules/.bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/rbenv/plugins/ruby-build/bin:/opt/boxen/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin"
-
 export NODE_PATH=`npm root -g`
 export PATH=$PATH:`npm bin -g`
 export PATH=$PATH:$GOPATH/bin
@@ -82,7 +80,6 @@ export PGDATA=/usr/local/var/postgres
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-source /opt/boxen/env.sh
 
 ## z easy jump dir
 . `brew --prefix`/etc/profile.d/z.sh
