@@ -52,7 +52,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 export LC_CTYPE=UTF-8
-export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/noguchimasato/go/bin:/usr/local/bin:/Users/noguchimasato/go/bin"
+export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/noguchimasato/go/bin:/usr/local/bin"
 
 # User configuration
 alias gvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
@@ -63,7 +63,6 @@ alias g='cd $(ghq list -p | peco)'
 
 export NODE_PATH=`npm root -g`
 export PATH=$PATH:`npm bin -g`
-export PATH=$PATH:$GOPATH/bin
 export PGDATA=/usr/local/var/postgres
 # export MANPATH="/usr/local/man:$MANPATH"
 
