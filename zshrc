@@ -89,6 +89,5 @@ autoload -U compinit
 compinit -u
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 
-
-### Added by the Heroku Toolbelt
-export SECRET_KEY_BASE="b0d91c53ae636693ede9077e5db89efed0c259a692e7652290a502a5caa413ee5f0d81e86fb813a63f1b37dcc8f2b4cfed0bed1edb9238c979d9dc0691cdf605"
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
