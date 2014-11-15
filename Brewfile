@@ -16,6 +16,7 @@ install z
 install node
 install tig
 install pt
+install jq
 
 cask install iterm2
 cask install java
