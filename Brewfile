@@ -26,5 +26,7 @@ cask install vagrant
 cask install kobito
 cask install karabiner
 cask install flux
+cask install pandoc
+cask install dash
 
 linkapps
