@@ -65,6 +65,7 @@ export NODE_PATH=`npm root -g`
 export PATH=$PATH:`npm bin -g`
 export PGDATA=/usr/local/var/postgres
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
