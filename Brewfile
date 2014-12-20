@@ -28,5 +28,7 @@ cask install karabiner
 cask install flux
 cask install pandoc
 cask install dash
+cask install atom
+cask install atom-shell
 
 linkapps
