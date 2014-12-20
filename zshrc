@@ -55,9 +55,6 @@ export LC_CTYPE=UTF-8
 export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/noguchimasato/go/bin:/usr/local/bin"
 
 # User configuration
-alias gvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
-alias vim="/usr/local/Cellar/vim/7.4.488/bin/vim"
-alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
 export GOPATH=$HOME/go
 alias g='cd $(ghq list -p | peco)'
 

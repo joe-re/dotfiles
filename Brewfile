@@ -17,6 +17,7 @@ install node
 install tig
 install pt
 install jq
+install ctags
 
 cask install iterm2
 cask install java
