@@ -1,0 +1,82 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  sudo: no
+  vars:
+    homebrew_packages_packages:
+      - { name: rbenv }
+      - { name: ruby-build }
+      - { name: go }
+      - { name: lua }
+      - { name: vim, install_options: with-lua }
+      - { name: tmux }
+      - { name: reattach-to-user-namespace }
+      - { name: z }
+      - { name: node }
+      - { name: tig }
+      - { name: pt }
+      - { name: jq }
+      - { name: ctags }
+
+    homebrew_cask_packages_packages:
+      - iterm2
+      - java
+      - dropbox
+      - virtualbox
+      - vagrant
+      - kobito
+      - karabiner
+      - flux
+      - pandoc
+      - dash
+      - atom
+      - atom-shell
+
+  pre_tasks:
+    - name: 'oh-my-zsh: get status'
+      register: oh_my_zsh
+      stat: path=~/.oh-my-zsh/
+    - name: 'oh-my-zsh: install'
+      shell: curl -L http://install.ohmyz.sh | sh
+      when: oh_my_zsh.stat.exists == false
+
+  tasks:
+    - name: 'make symlinks to under home dir'
+      file: src={{ item }} dest=~/.{{ item | basename }} state=link
+      with_fileglob:
+        - home_symlinks/*
+
+    - name: 'karabiner: make symlink of setting files'
+      file: src={{ item }} dest=~/Library/Application\ Support/Karabiner/{{ item | basename }} state=link
+      with_fileglob:
+        - Karabiner/*
+
+    - name: mkdir vim backup dir
+      file: path=~/.vim-backup state=directory
+
+    - name: mkdir vim-neobundle dir
+      file: path=~/.vim/bundle state=directory
+      notify: install neobundle
+
+    - name: check go modules status
+      command: go list {{ item }}
+      register: go_module
+      failed_when: go_module.rc not in [0, 1]
+      changed_when: go_module.rc not in [0, 1]
+      with_items:
+        - github.com/motemen/ghq
+        - github.com/lestrrat/peco/cmd/peco/
+
+    - name: install go modules
+      command: go get {{ item.item }}
+      when: item.rc == 1
+      with_items: go_module.results
+
+  handlers:
+    - name: install neobundle
+      command: git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+
+  roles:
+    - hnakamur.homebrew-packages
+    - hnakamur.homebrew-cask-packages

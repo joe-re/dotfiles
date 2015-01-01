@@ -4,7 +4,7 @@ files=("vimrc" "ctags" "tmux.conf" "atom" "rubocop.yml")
 
 for file in ${files[*]}
 do
-   filepath="${PWD}/${file}"
+   filepath="${PWD}/home_symlinks/${file}"
    homefile="${HOME}/.${file}"
 
   if [ -e "${homefile}" ]; then
