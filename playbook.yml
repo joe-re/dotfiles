@@ -43,12 +43,12 @@
 
   tasks:
     - name: 'make symlinks to under home dir'
-      file: src={{ item }} dest=~/.{{ item | basename }} state=link
+      file: src={{ item }} dest=~/.{{ item | basename }} state=link force=yes
       with_fileglob:
         - home_symlinks/*
 
     - name: 'karabiner: make symlink of setting files'
-      file: src={{ item }} dest=~/Library/Application\ Support/Karabiner/{{ item | basename }} state=link
+      file: src={{ item }} dest=~/Library/Application\ Support/Karabiner/{{ item | basename }} state=link force=yes
       with_fileglob:
         - Karabiner/*
 
