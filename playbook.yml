@@ -18,6 +18,9 @@
       - { name: pt }
       - { name: jq }
       - { name: ctags }
+      - { name: highlight }
+      - { name: imagemagick }
+
 
     homebrew_cask_packages_packages:
       - iterm2
