@@ -41,6 +41,7 @@ NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'tacroe/unite-mark'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
 filetype plugin indent on     " required!
 filetype indent on
