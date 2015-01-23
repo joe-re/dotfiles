@@ -18,6 +18,31 @@ protocol = https
 [color]
 ui = auto
 
+[alias]
+  co = checkout
+  st = status -sb
+  stat = status
+  ci = commit
+  br = branch
+  pick = cherry-pick
+  # ログを見やすく http://hail2u.net/blog/software/easy-to-read-git-log.html
+  l = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
+  ll = log
+  # 行単位ではなく単語単位でdiffを表示
+  d = diff --word-diff
+  # HEADから3日間のログをdiff付きで表示する
+  difflog = log -p HEAD@{3.days.ago}
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+  # rmコマンドを使わずに削除してしまったファイルをgit rmする
+  rmd = "!f() { git ls-files --deleted ; }; git rm `f`"
+  fs = flow feature start
+  ff = flow feature finish -kr
+  rs = flow release start
+  rf = flow release finish -k
+  hs = flow hotfix start
+  hf = flow hotfix finish -k
+
 [push]
 default = simple
 [difftool "sourcetree"]
