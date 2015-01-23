@@ -1,22 +1,21 @@
-
 [credential]
-helper = /opt/boxen/bin/boxen-git-credential
+  helper = /opt/boxen/bin/boxen-git-credential
 
 [core]
-	excludesfile = /opt/boxen/config/git/gitignore
-	editor = /usr/local/Cellar/vim/7.4.488/bin/vim
-	quotepath = false
-	precomposeunicode = true
+  excludesfile = /opt/boxen/config/git/gitignore
+  editor = /usr/local/Cellar/vim/7.4.488/bin/vim
+  quotepath = false
+  precomposeunicode = true
 
 [hub]
-protocol = https
+  protocol = https
 
 [user]
-	name = joe-re
-	email = joe.tialtngo@gmail.com
+  name = joe-re
+  email = joe.tialtngo@gmail.com
 
 [color]
-ui = auto
+  ui = auto
 
 [alias]
   co = checkout
@@ -44,13 +43,16 @@ ui = auto
   hf = flow hotfix finish -k
 
 [push]
-default = simple
+  default = simple
+
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
 [ghq]
-    root = ~/.ghq
-    root = ~/.go/src
+  root = ~/.ghq
+  root = ~/.go/src
