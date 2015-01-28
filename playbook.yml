@@ -20,6 +20,7 @@
       - { name: ctags }
       - { name: highlight }
       - { name: imagemagick }
+      - { name: git-flow }
 
 
     homebrew_cask_packages_packages:
