@@ -57,6 +57,7 @@ export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:
 # User configuration
 export GOPATH=$HOME/go
 alias g='cd $(ghq list -p | peco)'
+alias letsleep="osascript -e 'tell application \"Finder\" to sleep'"
 
 export NODE_PATH=`npm root -g`
 export PATH=$PATH:`npm bin -g`
