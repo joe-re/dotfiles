@@ -21,7 +21,10 @@
       - { name: highlight }
       - { name: imagemagick }
       - { name: git-flow }
-
+      - { name: gawk }
+      - { name: gnu-sed }
+      - { name: docker }
+      - { name: boot2docker }
 
     homebrew_cask_packages_packages:
       - iterm2
