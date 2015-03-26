@@ -25,6 +25,7 @@
       - { name: gnu-sed }
       - { name: docker }
       - { name: boot2docker }
+      - { name: tree }
 
     homebrew_cask_packages_packages:
       - iterm2
