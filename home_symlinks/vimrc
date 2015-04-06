@@ -113,8 +113,8 @@ let g:html5_microdata_attributes_complete = 1
 let g:html5_aria_attributes_complete = 1
 
 " インデントの設定
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 augroup vimrc
     autocmd! FileType perl setlocal shiftwidth=2 tabstop=2 softtabstop=2
