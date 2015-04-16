@@ -27,6 +27,7 @@
       - { name: boot2docker }
       - { name: tree }
       - { name: graphviz }
+      - { name: phantomjs }
 
     homebrew_cask_packages_packages:
       - iterm2
