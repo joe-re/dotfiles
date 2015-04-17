@@ -28,6 +28,10 @@
       - { name: tree }
       - { name: graphviz }
       - { name: phantomjs }
+      - { name: wget }
+      - { name: cmake }
+      - { name: git }
+      - { name: readline }
 
     homebrew_cask_packages_packages:
       - iterm2
