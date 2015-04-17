@@ -4,6 +4,8 @@
   gather_facts: no
   sudo: no
   vars:
+    homebrew_packages_taps:
+      - homebrew/versions
     homebrew_packages_packages:
       - { name: rbenv }
       - { name: ruby-build }
