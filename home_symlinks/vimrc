@@ -30,7 +30,7 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-operator-replace.git'
 NeoBundle 'kana/vim-operator-user.git'
@@ -159,7 +159,7 @@ inoremap <C-a> <HOME>
 inoremap <C-e> <END>
 
 let g:unite_split_rule = 'botright'
-noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
+nnoremap <silent> ,uo       : <C-u>Unite -no-quit -vertical -winwidth=30 outline<CR>
 
 "clipboardに入らないようにする
 "use black hole register
