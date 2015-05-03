@@ -141,6 +141,7 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 "nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> ,ur :<C-u>Unite file_rec/async<CR>
+nnoremap <silent> ,ut :<C-u>Unite tab<CR>
 
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': ['ruby'] }
