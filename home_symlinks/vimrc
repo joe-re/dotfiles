@@ -211,3 +211,9 @@ endif
 let g:vimfiler_as_default_explorer = 1
 nnoremap ,ue :VimFilerExplore -split -winwidth=30 -find -no-quit<Cr>
 nnoremap ,e :VimFiler<Cr>
+
+" trim space of line end
+function! Sweep_trail()
+  %substitute/\s\+$//e
+endfunction
+autocmd BufWritePre * call Sweep_trail()
