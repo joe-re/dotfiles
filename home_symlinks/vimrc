@@ -42,6 +42,8 @@ if has('vim_starting')
   NeoBundle 'Xuyuanp/nerdtree-git-plugin'
   NeoBundle 'kchmck/vim-coffee-script'
   NeoBundle 'Shougo/vimfiler.vim'
+  NeoBundle 'tpope/vim-rails'
+  NeoBundle 'kshenoy/vim-signature'
   call neobundle#end()
 endif
 
