@@ -222,3 +222,6 @@ autocmd BufWritePre * call Sweep_trail()
 
 " close tag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
+
+" enable html tag jump
+runtime macros/matchit.vim
