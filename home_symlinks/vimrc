@@ -46,6 +46,7 @@ if has('vim_starting')
   NeoBundle 'kshenoy/vim-signature'
   NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'alvan/vim-closetag'
+  NeoBundle 'AndrewRadev/vim-eco'
   call neobundle#end()
 endif
 
