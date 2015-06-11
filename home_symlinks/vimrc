@@ -49,6 +49,7 @@ if has('vim_starting')
   NeoBundle 'AndrewRadev/vim-eco'
   NeoBundle 'tpope/vim-abolish'
   NeoBundle 'othree/eregex.vim'
+  NeoBundle 'cohama/agit.vim'
   call neobundle#end()
 endif
 
@@ -240,3 +241,4 @@ nnoremap <silent> gd :<C-u>Gdiff<CR>
 nnoremap <silent> gb :<C-u>Gblame<CR>
 nnoremap <silent> gps :<C-u>Gpush<CR>
 nnoremap <silent> gpl :<C-u>Gpull<CR>
+nnoremap <silent> gl :<C-u>Agit<CR>
