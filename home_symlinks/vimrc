@@ -73,8 +73,9 @@ let neocomplete#enable_insert_char_pre=1 "インサートモード時のカー�
 " 行番号を表示
 set number
 
-" vimの文字列コピー時にクリップボードに値を入れる
-set clipboard+=unnamed
+set clipboard& clipboard+=unnamed
+" VisualModeで選択したテキストをクリップボードに入れる
+set guioptions& guioptions+=a
 
 "" js用インデント
 " この設定入れるとshiftwidthを1にしてインデントしてくれる
