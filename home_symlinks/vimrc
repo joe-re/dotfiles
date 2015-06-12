@@ -58,7 +58,7 @@ filetype indent on
 syntax on
 
 nnoremap <C-e> :<c-u>:NERDTreeToggle ./<cr>
-nnoremap <C-r> :<C-u>:NERDTreeFind<CR>
+nnoremap ,er :<C-u>:NERDTreeFind<CR>
 
 " neocomplete用設定
 let g:neocomplete#enable_at_startup = 1
