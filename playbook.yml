@@ -15,7 +15,7 @@
       - { name: tmux }
       - { name: reattach-to-user-namespace }
       - { name: z }
-      - { name: node }
+      - { name: nodebrew }
       - { name: tig }
       - { name: pt }
       - { name: jq }
