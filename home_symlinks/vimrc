@@ -224,7 +224,7 @@ nnoremap ,e :VimFiler<Cr>
 function! Sweep_trail()
   %substitute/\s\+$//e
 endfunction
-autocmd BufWritePre * call Sweep_trail()
+" autocmd BufWritePre * call Sweep_trail()
 
 " close tag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
