@@ -47,7 +47,6 @@
       - pandoc
       - dash
       - atom
-      - atom-shell
 
   pre_tasks:
     - name: 'oh-my-zsh: get status'
