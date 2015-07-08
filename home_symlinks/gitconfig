@@ -38,6 +38,8 @@
   rf = flow release finish -k
   hs = flow hotfix start
   hf = flow hotfix finish -k
+  # merge済みのブランチを消す
+	clean-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 
 [push]
   default = simple
