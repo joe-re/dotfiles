@@ -242,4 +242,5 @@ nnoremap <silent> gd :<C-u>Gdiff<CR>
 nnoremap <silent> gb :<C-u>Gblame<CR>
 nnoremap <silent> gps :<C-u>Gpush<CR>
 nnoremap <silent> gpl :<C-u>Gpull<CR>
-nnoremap <silent> gl :<C-u>Agit<CR>
+nnoremap <silent> gtig :<C-u>Agit<CR>
+nnoremap <silent> gl :<C-u>AgitFile<CR>
