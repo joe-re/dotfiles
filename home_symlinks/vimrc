@@ -51,6 +51,7 @@ if has('vim_starting')
   NeoBundle 'othree/eregex.vim'
   NeoBundle 'cohama/agit.vim'
   NeoBundle 'rhysd/committia.vim'
+  NeoBundle 'vim-merginal'
   call neobundle#end()
 endif
 
@@ -245,6 +246,7 @@ nnoremap <silent> gps :<C-u>Gpush<CR>
 nnoremap <silent> gpl :<C-u>Gpull<CR>
 nnoremap <silent> gtig :<C-u>Agit<CR>
 nnoremap <silent> gl :<C-u>AgitFile<CR>
+nnoremap <silent> gbr :<C-u>Merginal<CR>
 
 let g:committia_hooks = {}
 function! g:committia_hooks.edit_open(info)
