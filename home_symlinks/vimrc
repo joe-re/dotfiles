@@ -50,6 +50,7 @@ if has('vim_starting')
   NeoBundle 'tpope/vim-abolish'
   NeoBundle 'othree/eregex.vim'
   NeoBundle 'cohama/agit.vim'
+  NeoBundle 'rhysd/committia.vim'
   call neobundle#end()
 endif
 
@@ -244,3 +245,20 @@ nnoremap <silent> gps :<C-u>Gpush<CR>
 nnoremap <silent> gpl :<C-u>Gpull<CR>
 nnoremap <silent> gtig :<C-u>Agit<CR>
 nnoremap <silent> gl :<C-u>AgitFile<CR>
+
+let g:committia_hooks = {}
+function! g:committia_hooks.edit_open(info)
+    " Additional settings
+    setlocal spell
+
+    " If no commit message, start with insert mode
+    if a:info.vcs ==# 'git' && getline(1) ==# ''
+        startinsert
+    end
+
+    " Scroll the diff window from insert mode
+    " Map <C-n> and <C-p>
+    imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
+    imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+
+endfunction
