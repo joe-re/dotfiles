@@ -34,6 +34,8 @@
       - { name: cmake }
       - { name: git }
       - { name: readline }
+      - { name: python3 }
+      - { name: pyenv }
 
     homebrew_cask_packages_packages:
       - iterm2
