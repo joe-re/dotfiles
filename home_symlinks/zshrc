@@ -53,6 +53,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 export LC_CTYPE=UTF-8
 export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/noguchimasato/go/bin:/usr/local/bin"
+export PATH="$HOME/.pyenv/shims:$PATH"
 
 # User configuration
 export GOPATH=$HOME/go

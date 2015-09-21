@@ -1,1 +1,0 @@
-eval "$(plenv init -)"
