@@ -52,6 +52,7 @@ if has('vim_starting')
   NeoBundle 'cohama/agit.vim'
   NeoBundle 'rhysd/committia.vim'
   NeoBundle 'vim-merginal'
+  NeoBundle 'derekwyatt/vim-scala'
   call neobundle#end()
 endif
 
