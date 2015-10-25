@@ -36,6 +36,7 @@
       - { name: readline }
       - { name: python3 }
       - { name: pyenv }
+      - { name: flow }
 
     homebrew_cask_packages_packages:
       - iterm2
