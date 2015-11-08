@@ -53,6 +53,10 @@ if has('vim_starting')
   NeoBundle 'rhysd/committia.vim'
   NeoBundle 'vim-merginal'
   NeoBundle 'derekwyatt/vim-scala'
+  NeoBundleLazy 'facebook/vim-flow', {
+            \ 'autoload': {
+            \     'filetypes': 'javascript'
+            \ }}
   call neobundle#end()
 endif
 
