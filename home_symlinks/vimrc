@@ -57,6 +57,7 @@ if has('vim_starting')
             \ 'autoload': {
             \     'filetypes': 'javascript'
             \ }}
+  NeoBundle 'basyura/unite-rails'
   call neobundle#end()
 endif
 

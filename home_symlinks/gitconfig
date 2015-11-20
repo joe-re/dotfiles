@@ -55,5 +55,6 @@
 [ghq]
   root = ~/.ghq
   root = ~/.go/src
+
 [credential]
 	helper = osxkeychain

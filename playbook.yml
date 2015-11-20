@@ -6,6 +6,7 @@
   vars:
     homebrew_packages_taps:
       - homebrew/versions
+      - tkengo/highway
     homebrew_packages_packages:
       - { name: rbenv }
       - { name: ruby-build }
@@ -17,7 +18,6 @@
       - { name: z }
       - { name: nodebrew }
       - { name: tig }
-      - { name: pt }
       - { name: jq }
       - { name: ctags }
       - { name: highlight }
@@ -36,7 +36,11 @@
       - { name: readline }
       - { name: python3 }
       - { name: pyenv }
+<<<<<<< HEAD
       - { name: flow }
+=======
+      - { name: highway }
+>>>>>>> replace s/pt/highway/
 
     homebrew_cask_packages_packages:
       - iterm2
