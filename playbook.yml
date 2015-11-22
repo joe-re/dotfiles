@@ -36,11 +36,8 @@
       - { name: readline }
       - { name: python3 }
       - { name: pyenv }
-<<<<<<< HEAD
       - { name: flow }
-=======
       - { name: highway }
->>>>>>> replace s/pt/highway/
 
     homebrew_cask_packages_packages:
       - iterm2
