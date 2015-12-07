@@ -37,6 +37,7 @@
       - { name: pyenv }
       - { name: flow }
       - { name: highway }
+      - { name: libmagic }
 
     homebrew_cask_packages_packages:
       - iterm2
