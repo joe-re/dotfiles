@@ -56,7 +56,9 @@ export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:
 export PATH="$HOME/.pyenv/shims:$PATH"
 
 # User configuration
+export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias g='cd $(ghq list -p | peco)'
 alias letsleep="osascript -e 'tell application \"Finder\" to sleep'"
 
@@ -64,7 +66,6 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export NODE_PATH=`npm root -g`
 export PATH=$PATH:`npm bin -g`
 export PGDATA=/usr/local/var/postgres
-export PATH=/usr/local/var/nodebrew/current/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 

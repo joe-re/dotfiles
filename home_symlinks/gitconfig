@@ -1,6 +1,6 @@
 [core]
   excludesfile = /opt/boxen/config/git/gitignore
-  editor = /usr/local/Cellar/vim/7.4.488/bin/vim
+  editor = /usr/local/opt/vim/bin/vim
   quotepath = false
   precomposeunicode = true
 

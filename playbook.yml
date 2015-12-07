@@ -29,7 +29,6 @@
       - { name: boot2docker }
       - { name: tree }
       - { name: graphviz }
-      - { name: phantomjs }
       - { name: wget }
       - { name: cmake }
       - { name: git }
