@@ -45,7 +45,6 @@
       - dropbox
       - virtualbox
       - vagrant
-      - kobito
       - karabiner
       - flux
       - pandoc
