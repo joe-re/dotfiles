@@ -59,6 +59,7 @@ if has('vim_starting')
             \ }}
   NeoBundle 'basyura/unite-rails'
   NeoBundle 'rust-lang/rust.vim'
+  NeoBundle 'racer-rust/vim-racer'
   call neobundle#end()
 endif
 
@@ -272,5 +273,4 @@ function! g:committia_hooks.edit_open(info)
     imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
 
 endfunction
-
-let g:rustfmt_autosave = 1
+let g:racer_cmd="/Users/noguchimasato/.cargo/bin/racer"
