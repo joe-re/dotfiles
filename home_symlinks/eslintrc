@@ -35,7 +35,6 @@
     "no-catch-shadow": 2,
     "no-dupe-args": 2,
     "no-else-return": 2,
-    "no-empty-label": 2,
     "no-eval": 2,
     "no-extend-native": 2,
     "no-extra-bind": 2,
@@ -96,7 +95,6 @@
     "prefer-const": 2,
     "constructor-super": 2,
     "no-this-before-super": 2,
-    "space-after-keywords": 2,
     "arrow-spacing": 2,
 
     "react/jsx-uses-vars": 1
