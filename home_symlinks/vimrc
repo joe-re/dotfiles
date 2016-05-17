@@ -89,6 +89,8 @@ set clipboard& clipboard+=unnamed
 " VisualModeで選択したテキストをクリップボードに入れる
 set guioptions& guioptions+=a
 
+colorscheme elflord
+
 "" js用インデント
 " この設定入れるとshiftwidthを1にしてインデントしてくれる
 let g:SimpleJsIndenter_BriefMode = 1
