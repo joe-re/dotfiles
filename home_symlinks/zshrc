@@ -117,3 +117,7 @@ function find-pr-open() {
   local repo="$(git config --get remote.origin.url | sed 's/git@github.com://' | sed 's/ssh:\/\/git@github.com\///' | sed 's/\.git$//')"
   open "https://github.com/${repo}/pull/${pr}"
 }
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/masato_noguchi/.sdkman"
+[[ -s "/Users/masato_noguchi/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/masato_noguchi/.sdkman/bin/sdkman-init.sh"

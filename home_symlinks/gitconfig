@@ -58,3 +58,9 @@
 
 [credential]
 	helper = osxkeychain
+
+[mergetool "mergepbx"]
+    cmd = mergepbx "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"
+[merge "mergepbx"]
+    name = XCode project files merger
+    driver = /usr/local/bin/mergepbx %O %A %B
