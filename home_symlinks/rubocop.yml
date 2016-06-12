@@ -12,10 +12,6 @@ Metrics/LineLength:
 Style/Documentation:
   Enabled: false
 
-# 配列末尾のカンマとか
-Style/TrailingComma:
-  Enabled: false
-
 # Use only ascii symbols in comments.
 Style/AsciiComments:
   Enabled: false
