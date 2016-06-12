@@ -62,7 +62,12 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias g='cd $(ghq list -p | peco)'
 alias letsleep="osascript -e 'tell application \"Finder\" to sleep'"
 
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+# export PATH=$HOME/.nodebrew/current/bin:$PATH
+# export PATH="$HOME/.nodenv/bin:$PATH"
+# eval "$(nodenv init -)"
+export PATH="$HOME/.ndenv/bin:$PATH"
+eval "$(ndenv init -)"
+
 export NODE_PATH=`npm root -g`
 export PATH=$PATH:`npm bin -g`
 export PGDATA=/usr/local/var/postgres
