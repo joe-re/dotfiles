@@ -126,3 +126,5 @@ function find-pr-open() {
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/masato_noguchi/.sdkman"
 [[ -s "/Users/masato_noguchi/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/masato_noguchi/.sdkman/bin/sdkman-init.sh"
+# OPAM configuration
+. ~/.opam/opam-init/init.sh

@@ -276,3 +276,10 @@ function! g:committia_hooks.edit_open(info)
 
 endfunction
 let g:racer_cmd="/Users/noguchimasato/.cargo/bin/racer"
+
+" marlin
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+let g:syntastic_ocaml_checkers = ['merlin']
+set rtp^="~/.opam/system/share/ocp-indent/vim"
+

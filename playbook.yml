@@ -35,9 +35,10 @@
       - { name: readline }
       - { name: python3 }
       - { name: pyenv }
-      - { name: flow }
       - { name: highway }
       - { name: libmagic }
+      - { name: opam }
+      - { name: rlwrap }
 
     homebrew_cask_packages_packages:
       - iterm2
@@ -90,6 +91,12 @@
       command: go get {{ item.item }}
       when: item.rc == 1
       with_items: go_module.results
+
+    - name: install opam modules
+      command: opam install {{ item }}
+      with_items:
+        - merlin
+        - ocp-indent
 
   handlers:
     - name: install neobundle
