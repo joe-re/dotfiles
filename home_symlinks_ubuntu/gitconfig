@@ -1,0 +1,66 @@
+[core]
+  excludesfile = /opt/boxen/config/git/gitignore
+  editor = /usr/bin/vim
+  quotepath = false
+  precomposeunicode = true
+
+[hub]
+  protocol = https
+
+[user]
+  name = joe-re
+  email = joe.tialtngo@gmail.com
+
+[color]
+  ui = auto
+
+[alias]
+  co = checkout
+  st = status -sb
+  stat = status
+  ci = commit
+  br = branch
+  pick = cherry-pick
+  # ログを見やすく http://hail2u.net/blog/software/easy-to-read-git-log.html
+  l = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
+  ll = log
+  # 行単位ではなく単語単位でdiffを表示
+  d = diff --word-diff
+  # HEADから3日間のログをdiff付きで表示する
+  difflog = log -p HEAD@{3.days.ago}
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+  # rmコマンドを使わずに削除してしまったファイルをgit rmする
+  rmd = "!f() { git ls-files --deleted ; }; git rm `f`"
+  fs = flow feature start
+  ff = flow feature finish -kr
+  rs = flow release start
+  rf = flow release finish -k
+  hs = flow hotfix start
+  hf = flow hotfix finish -k
+  # merge済みのブランチを消す
+	clean-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+
+[push]
+  default = simple
+
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
+[ghq]
+  root = ~/.ghq
+  root = ~/.go/src
+
+[mergetool "mergepbx"]
+  cmd = mergepbx "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"
+[merge "mergepbx"]
+  name = XCode project files merger
+  driver = /usr/local/bin/mergepbx %O %A %B
+
+[credential]
+    helper = gnomekeyring

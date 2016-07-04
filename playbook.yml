@@ -65,6 +65,7 @@
       file: src={{ item }} dest=~/.{{ item | basename }} state=link force=yes
       with_fileglob:
         - home_symlinks/*
+        - home_symlinks_osx/*
 
     - name: 'karabiner: make symlink of setting files'
       file: src={{ item }} dest=~/Library/Application\ Support/Karabiner/{{ item | basename }} state=link force=yes

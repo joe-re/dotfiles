@@ -1,0 +1,26 @@
+---
+- hosts: 127.0.0.1
+  sudo: yes
+
+  pre_tasks:
+    - name: 'oh-my-zsh: get status'
+      register: oh_my_zsh
+      stat: path=~/.oh-my-zsh/
+    - name: 'oh-my-zsh: install'
+      shell: curl -L http://install.ohmyz.sh | sh
+      when: oh_my_zsh.stat.exists == false
+
+  tasks:
+    - name: 'make symlinks to under home dir'
+      file: src={{ item }} dest=~/.{{ item | basename }} state=link force=yes
+      with_fileglob:
+        - home_symlinks/*
+        - home_symlinks_ubuntu/*
+    - name: Apt install some packages
+      apt: pkg={{item}} force=yes update_cache=yes
+      with_items:
+        - zsh
+        - git
+        - tmux
+        - vim-gnome
+        - xsel

@@ -56,9 +56,6 @@
   root = ~/.ghq
   root = ~/.go/src
 
-[credential]
-	helper = osxkeychain
-
 [mergetool "mergepbx"]
     cmd = mergepbx "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"
 [merge "mergepbx"]
