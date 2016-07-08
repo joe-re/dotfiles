@@ -24,3 +24,11 @@
         - tmux
         - vim-gnome
         - xsel
+    - name: mkdir vim backup dir
+      file: path=~/.vim-backup state=directory
+    - name: mkdir vim-neobundle dir
+      file: path=~/.vim/bundle state=directory
+      notify: install neobundle
+  handlers:
+    - name: install neobundle
+      command: git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
