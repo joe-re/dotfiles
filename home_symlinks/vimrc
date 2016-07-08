@@ -60,6 +60,8 @@ if has('vim_starting')
   NeoBundle 'basyura/unite-rails'
   NeoBundle 'rust-lang/rust.vim'
   NeoBundle 'racer-rust/vim-racer'
+  NeoBundle 'leafgarland/typescript-vim'
+  NeoBundle 'Quramy/tsuquyomi'
   call neobundle#end()
 endif
 
