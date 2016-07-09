@@ -7,6 +7,7 @@
     homebrew_packages_taps:
       - homebrew/versions
       - tkengo/highway
+      - neovim/neovim
     homebrew_packages_packages:
       - { name: rbenv }
       - { name: ruby-build }
@@ -39,6 +40,7 @@
       - { name: libmagic }
       - { name: opam }
       - { name: rlwrap }
+      - { name: neovim }
 
     homebrew_cask_packages_packages:
       - iterm2
@@ -75,9 +77,23 @@
     - name: mkdir vim backup dir
       file: path=~/.vim-backup state=directory
 
-    - name: mkdir vim-neobundle dir
-      file: path=~/.vim/bundle state=directory
-      notify: install neobundle
+    - name: mkdir XDG_CONFIG_HOME
+      file: path=~/.config state=directory
+
+    - name: prepare dein.vim installer
+      command: curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > _neovim_installer.sh
+      when: test -d ~/.config/nvim
+
+    - name: install dein.vim
+      command: sh ./_neovim_installer.sh
+      when: test -d ~/.config/nvim
+
+    - name: remove dein.vim installer
+      command: rm ./_neovim_installer.sh
+      when: test -b ./_neovim_installer.sh
+
+    - name: make symlinks for neo vim setting
+      file: src=~/.vimrc dest=~/.config/nvim/init.vim state=link force=yes
 
     - name: check go modules status
       command: go list {{ item }}
