@@ -1,6 +1,5 @@
 ---
 - hosts: 127.0.0.1
-  sudo: yes
 
   pre_tasks:
     - name: 'oh-my-zsh: get status'
@@ -12,6 +11,7 @@
 
   tasks:
     - name: 'make symlinks to under home dir'
+      become: yes
       file: src={{ item }} dest=~/.{{ item | basename }} state=link force=yes
       with_fileglob:
         - home_symlinks/*
@@ -24,6 +24,7 @@
         - tmux
         - vim-gnome
         - xsel
+        - vim-gtk
     - name: mkdir vim backup dir
       file: path=~/.vim-backup state=directory
     - name: mkdir vim-neobundle dir
