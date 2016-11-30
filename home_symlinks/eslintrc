@@ -24,7 +24,7 @@
     "curly": 2,
     "object-curly-spacing": [2, "always"],
     "array-bracket-spacing": [2, "always"],
-    "dot-location": [2, "object"],
+    "dot-location": [0],
     "camelcase": [2, {"properties": "never"}],
     "dot-notation": 2,
     "yoda": [2, "never", { "exceptRange": true }],
