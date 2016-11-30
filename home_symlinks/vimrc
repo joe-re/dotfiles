@@ -33,6 +33,7 @@ call dein#add('basyura/unite-rails')
 call dein#add('leafgarland/typescript-vim')
 call dein#add('Quramy/tsuquyomi')
 call dein#add('neomake/neomake')
+call dein#add('fatih/vim-go')
 call dein#end()
 
 if dein#check_install()
@@ -95,6 +96,7 @@ augroup vimrc
   autocmd! FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd! FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd! FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd! FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4
 augroup END
 
 set imdisable
@@ -180,10 +182,10 @@ call submode#map('winsize', 'n', '', 'H', '<C-w><')
 call submode#map('winsize', 'n', '', 'J', '<C-w>+')
 call submode#map('winsize', 'n', '', 'K', '<C-w>-')
 
-" grepにptを使う
+" grepにhwを使う
 nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer -no-quit -winheight=10<CR>
-if executable('pt')
-  let g:unite_source_grep_command = 'pt'
+if executable('hw')
+  let g:unite_source_grep_command = 'hw'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor'
   let g:unite_source_grep_recursive_opt = ''
 endif
@@ -250,18 +252,21 @@ let g:racer_cmd="/Users/noguchimasato/.cargo/bin/racer"
 
 " marlin
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
 set rtp^="~/.opam/system/share/ocp-indent/vim"
 
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc-jp,iso-2022-jp
 set fileformats=unix,mac,dos
+set ambiwidth=double
 
 " neomake
 if dein#tap('neomake')
   autocmd! BufWritePost * Neomake
   let g:neomake_open_list = 2
   let g:neomake_ruby_enabled_makers = ['rubocop']
-  let g:neomake_javascript_enabled_makers = ['eslint']
+  let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
   let g:neomake_html_enabled_makers = []
 endif
+
+" vim-flow
+let g:flow#enable=0

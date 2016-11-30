@@ -50,7 +50,6 @@
       - vagrant
       - karabiner
       - flux
-      - pandoc
       - dash
       - atom
 
@@ -77,16 +76,16 @@
     - name: mkdir vim backup dir
       file: path=~/.vim-backup state=directory
 
-    - name: mkdir XDG_CONFIG_HOME
-      file: path=~/.config state=directory
+    - name: mkdir XDG_CONFIG_HOME & nvim
+      file: path=~/.config/nvim state=directory
 
     - name: prepare dein.vim installer
       command: curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > _neovim_installer.sh
-      when: test -d ~/.config/nvim
+      when: test -d ${HOME}/.config/nvim
 
     - name: install dein.vim
       command: sh ./_neovim_installer.sh
-      when: test -d ~/.config/nvim
+      when: test -d ${HOME}/.config/nvim
 
     - name: remove dein.vim installer
       command: rm ./_neovim_installer.sh

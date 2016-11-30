@@ -54,6 +54,7 @@ source $ZSH/oh-my-zsh.sh
 export LC_CTYPE=UTF-8
 export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/noguchimasato/go/bin:/usr/local/bin"
 export PATH="$HOME/.pyenv/shims:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
 
 # User configuration
 export GOROOT=/usr/local/opt/go/libexec
@@ -72,7 +73,6 @@ export NODE_PATH=`npm root -g`
 export PATH=$PATH:`npm bin -g`
 export PGDATA=/usr/local/var/postgres
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
 
 export RUST_SRC_PATH="$HOME/.ghq/github.com/rust-lang/rust/src/"
 export PATH="$HOME/.cargo/bin:$PATH"
