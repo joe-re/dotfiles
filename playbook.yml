@@ -3,56 +3,6 @@
   connection: local
   gather_facts: no
   sudo: no
-  vars:
-    homebrew_packages_taps:
-      - homebrew/versions
-      - tkengo/highway
-      - neovim/neovim
-    homebrew_packages_packages:
-      - { name: rbenv }
-      - { name: ruby-build }
-      - { name: go }
-      - { name: lua }
-      - { name: vim, install_options: with-lua }
-      - { name: tmux }
-      - { name: reattach-to-user-namespace }
-      - { name: z }
-      - { name: nodebrew }
-      - { name: tig }
-      - { name: jq }
-      - { name: ctags }
-      - { name: highlight }
-      - { name: imagemagick }
-      - { name: git-flow }
-      - { name: gawk }
-      - { name: gnu-sed }
-      - { name: docker }
-      - { name: boot2docker }
-      - { name: tree }
-      - { name: graphviz }
-      - { name: wget }
-      - { name: cmake }
-      - { name: git }
-      - { name: readline }
-      - { name: python3 }
-      - { name: pyenv }
-      - { name: highway }
-      - { name: libmagic }
-      - { name: opam }
-      - { name: rlwrap }
-      - { name: neovim }
-
-    homebrew_cask_packages_packages:
-      - iterm2
-      - java
-      - dropbox
-      - virtualbox
-      - vagrant
-      - karabiner
-      - flux
-      - dash
-      - atom
-
   pre_tasks:
     - name: 'oh-my-zsh: get status'
       register: oh_my_zsh
@@ -62,16 +12,68 @@
       when: oh_my_zsh.stat.exists == false
 
   tasks:
+    - name: Update homebrew
+      homebrew: update_homebrew=yes
+
+    - name: Add homebrew tap repositories
+      homebrew_tap: tap={{ item }} state=present
+      with_items:
+        - homebrew/versions
+        - tkengo/highway
+        - neovim/neovim
+        - caskroom/cask
+
+    - name: Install homebrew packages
+      homebrew: name={{ item }}
+      with_items:
+        - rbenv
+        - ruby-build
+        - go
+        - lua
+        - tmux
+        - reattach-to-user-namespace
+        - z
+        - nodebrew
+        - tig
+        - jq
+        - ctags
+        - highlight
+        - imagemagick
+        - git-flow
+        - gawk
+        - gnu-sed
+        - docker
+        - boot2docker
+        - tree
+        - graphviz
+        - wget
+        - cmake
+        - git
+        - readline
+        - python3
+        - pyenv
+        - highway
+        - libmagic
+        - opam
+        - rlwrap
+        - neovim
+
+    - name: Install cask packages
+      homebrew_cask: name={{ item }} state=present
+      with_items:
+        - iterm2
+        - java
+        - virtualbox
+        - vagrant
+        - flux
+        - dash
+        - atom
+
     - name: 'make symlinks to under home dir'
       file: src={{ item }} dest=~/.{{ item | basename }} state=link force=yes
       with_fileglob:
         - home_symlinks/*
         - home_symlinks_osx/*
-
-    - name: 'karabiner: make symlink of setting files'
-      file: src={{ item }} dest=~/Library/Application\ Support/Karabiner/{{ item | basename }} state=link force=yes
-      with_fileglob:
-        - Karabiner/*
 
     - name: mkdir vim backup dir
       file: path=~/.vim-backup state=directory
@@ -117,7 +119,3 @@
   handlers:
     - name: install neobundle
       command: git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-
-  roles:
-    - hnakamur.homebrew-packages
-    - hnakamur.homebrew-cask-packages
