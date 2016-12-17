@@ -57,6 +57,7 @@
         - opam
         - rlwrap
         - neovim
+        - peco
 
     - name: Install cask packages
       homebrew_cask: name={{ item }} state=present
@@ -66,7 +67,6 @@
         - virtualbox
         - vagrant
         - flux
-        - dash
         - atom
 
     - name: 'make symlinks to under home dir'
@@ -81,41 +81,33 @@
     - name: mkdir XDG_CONFIG_HOME & nvim
       file: path=~/.config/nvim state=directory
 
-    - name: prepare dein.vim installer
-      command: curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > _neovim_installer.sh
-      when: test -d ${HOME}/.config/nvim
+    - name: check existing neovim path
+      command: test -d ${HOME}/.config/nvim
+      register: exists_neovim_path
+      ignore_errors: True
 
-    - name: install dein.vim
-      command: sh ./_neovim_installer.sh
-      when: test -d ${HOME}/.config/nvim
+      # - name: prepare for dein.vim installer
+      # - command: curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > _neovim_installer.sh
+      # - when: exists_neovim_path
 
-    - name: remove dein.vim installer
-      command: rm ./_neovim_installer.sh
-      when: test -b ./_neovim_installer.sh
+      # - name: install dein.vim
+      # - command: sh ./_neovim_installer.sh ${HOME}/.config/nvim
+      # - when: exists_neovim_path
 
-    - name: make symlinks for neo vim setting
+      # - name: remove dein.vim installer
+      # - command: rm ./_neovim_installer.sh
+      # - when: exists_neovim_path
+
+    - name: make symlinks for neovim setting
       file: src=~/.vimrc dest=~/.config/nvim/init.vim state=link force=yes
 
-    - name: check go modules status
-      command: go list {{ item }}
-      register: go_module
-      failed_when: go_module.rc not in [0, 1]
-      changed_when: go_module.rc not in [0, 1]
+    - name: install go modules
+      command: go get {{ item }}
       with_items:
         - github.com/motemen/ghq
-        - github.com/lestrrat/peco/cmd/peco/
-
-    - name: install go modules
-      command: go get {{ item.item }}
-      when: item.rc == 1
-      with_items: go_module.results
 
     - name: install opam modules
       command: opam install {{ item }}
       with_items:
         - merlin
         - ocp-indent
-
-  handlers:
-    - name: install neobundle
-      command: git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim

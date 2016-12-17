@@ -9,7 +9,6 @@ make development environment for mac
 
 ### for mac
 ```
-./init.sh # only first
 ansible-playbook playbook.yml -i hosts
 ```
 
