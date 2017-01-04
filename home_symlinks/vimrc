@@ -10,7 +10,7 @@ call dein#begin(s:dein_dir)
 
 call dein#add(s:dein_dir)
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/denite.nvim')
 call dein#add('Shougo/neomru.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('Shougo/deoplete.nvim')
@@ -130,18 +130,6 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
-
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
-let g:unite_source_file_mru_limit = 200
-nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-"nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-"nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
-nnoremap <silent> ,ur :<C-u>Unite file_rec/async<CR>
-nnoremap <silent> ,ut :<C-u>Unite tab<CR>
-
 augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
@@ -154,9 +142,6 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-a> <HOME>
 inoremap <C-e> <END>
-
-let g:unite_split_rule = 'botright'
-nnoremap <silent> ,uo       : <C-u>Unite -no-quit -vertical -winwidth=30 outline<CR>
 
 "clipboardに入らないようにする
 "use black hole register
@@ -181,14 +166,6 @@ call submode#map('winsize', 'n', '', 'L', '<C-w>>')
 call submode#map('winsize', 'n', '', 'H', '<C-w><')
 call submode#map('winsize', 'n', '', 'J', '<C-w>+')
 call submode#map('winsize', 'n', '', 'K', '<C-w>-')
-
-" grepにhwを使う
-nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer -no-quit -winheight=10<CR>
-if executable('hw')
-  let g:unite_source_grep_command = 'hw'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt = ''
-endif
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
@@ -270,3 +247,46 @@ endif
 
 " vim-flow
 let g:flow#enable=0
+" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
+let s:opam_share_dir = system("opam config var share")
+let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+
+let s:opam_configuration = {}
+
+function! OpamConfOcpIndent()
+  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+endfunction
+let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+function! OpamConfOcpIndex()
+  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+endfunction
+let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+
+function! OpamConfMerlin()
+  let l:dir = s:opam_share_dir . "/merlin/vim"
+  execute "set rtp+=" . l:dir
+endfunction
+let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+for tool in s:opam_packages
+  " Respect package order (merlin should be after ocp-index)
+  if count(s:opam_available_tools, tool) > 0
+    call s:opam_configuration[tool]()
+  endif
+endfor
+" ## end of OPAM user-setup addition for vim / base ## keep this line
+let g:python3_host_prog = expand('/usr/local/bin/python3')
+
+" denite
+nnoremap [denite] <Nop>
+nmap ,u [denite]
+nnoremap <silent> [denite]g  :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
+nnoremap <silent> [denite]b  :<C-u>Denite buffer<CR>
+nnoremap <silent> [denite]e  :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
+nnoremap <silent> [denite]r :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
+nnoremap <silent> [denite]n :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
+nnoremap <silent> [denite]p :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
