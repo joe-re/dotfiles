@@ -35,6 +35,8 @@ call dein#add('Quramy/tsuquyomi')
 call dein#add('neomake/neomake')
 call dein#add('fatih/vim-go')
 call dein#add('Shougo/deoplete.nvim')
+call dein#add('steelsojka/deoplete-flow')
+call dein#add('dart-lang/dart-vim-plugin')
 call dein#end()
 
 if dein#check_install()
@@ -279,6 +281,8 @@ for tool in s:opam_packages
     call s:opam_configuration[tool]()
   endif
 endfor
+nnoremap <silent> mec :<C-u>MerlinErrorCheck<CR>
+
 " ## end of OPAM user-setup addition for vim / base ## keep this line
 let g:python3_host_prog = expand('/usr/local/bin/python3')
 
@@ -293,4 +297,8 @@ nnoremap <silent> [denite]n :<C-u>Denite -resume -buffer-name=search-buffer-deni
 nnoremap <silent> [denite]p :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
 
 " deoplete
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.ocaml = '.*'
+let g:deoplete#omni_patterns.ocaml = '[^ ,;\t\[()\]]'
 call deoplete#enable()
+
