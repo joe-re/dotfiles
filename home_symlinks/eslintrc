@@ -21,7 +21,7 @@
     "key-spacing": [0],
     "quotes": [2, "single", "avoid-escape"],
     "brace-style": [2, "1tbs", { "allowSingleLine": false }],
-    "curly": 2,
+    "curly": 0,
     "object-curly-spacing": [2, "always"],
     "array-bracket-spacing": [2, "always"],
     "dot-location": [0],
