@@ -22,6 +22,7 @@
         - tkengo/highway
         - neovim/neovim
         - caskroom/cask
+        - sanemat/font
 
     - name: Install homebrew packages
       homebrew: name={{ item }}
@@ -58,6 +59,8 @@
         - rlwrap
         - neovim
         - peco
+        - XQuartz
+        - ricty
 
     - name: Install cask packages
       homebrew_cask: name={{ item }} state=present
