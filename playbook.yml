@@ -43,8 +43,6 @@
         - git-flow
         - gawk
         - gnu-sed
-        - docker
-        - boot2docker
         - tree
         - graphviz
         - wget
