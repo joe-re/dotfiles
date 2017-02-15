@@ -57,7 +57,6 @@
         - rlwrap
         - neovim
         - peco
-        - XQuartz
         - ricty
 
     - name: Install cask packages
