@@ -1,6 +1,6 @@
 [core]
   excludesfile = /opt/boxen/config/git/gitignore
-  editor = /usr/local/opt/vim/bin/vim
+  editor = vim
   quotepath = false
   precomposeunicode = true
 
@@ -40,6 +40,7 @@
   hf = flow hotfix finish -k
   # merge済みのブランチを消す
 	clean-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+  pr = "!sh -c 'git fetch $1 pull/$2/head:pr$2' -"
 
 [push]
   default = simple
