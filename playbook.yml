@@ -68,12 +68,14 @@
         - vagrant
         - flux
         - atom
+        - hammerspoon
 
     - name: 'make symlinks to under home dir'
       file: src={{ item }} dest=~/.{{ item | basename }} state=link force=yes
       with_fileglob:
         - home_symlinks/*
         - home_symlinks_osx/*
+        - hammerspoon
 
     - name: mkdir vim backup dir
       file: path=~/.vim-backup state=directory
