@@ -25,3 +25,6 @@ Lint/AssignmentInCondition:
 
 PerlBackrefs:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

@@ -41,7 +41,7 @@
   # merge済みのブランチを消す
 	clean-branches = !git branch --merged | grep -v \\* | xargs -I {} git branch -d {}
   remote-add = "!f() { git config --get remote.origin.url | sed -e s/`git config user.name`/$1/ | xargs git remote add upstream; }; f"
-  pr = "!f() { git fetch $1 pull/$2/head:pr$2; }; f"
+  pr = "!f() { git fetch $1 pull/$2/head:pr$2; git checkout pr$2; }; f"
 
 [push]
   default = simple

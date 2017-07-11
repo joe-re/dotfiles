@@ -31,10 +31,12 @@ call dein#add('alvan/vim-closetag')
 call dein#add('basyura/unite-rails')
 call dein#add('leafgarland/typescript-vim')
 call dein#add('Quramy/tsuquyomi')
-call dein#add('neomake/neomake')
+call dein#add('w0rp/ale')
 call dein#add('fatih/vim-go')
 call dein#add('Shougo/deoplete.nvim')
-call dein#add('steelsojka/deoplete-flow')
+call dein#add('wokalski/autocomplete-flow')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
 call dein#add('dart-lang/dart-vim-plugin')
 call dein#end()
 
@@ -172,13 +174,7 @@ call submode#map('winsize', 'n', '', 'K', '<C-w>-')
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 " vimfilter
 let g:vimfiler_as_default_explorer = 1
@@ -238,14 +234,14 @@ set fileencodings=utf-8,sjis,euc-jp,iso-2022-jp
 set fileformats=unix,mac,dos
 set ambiwidth=double
 
-" neomake
-if dein#tap('neomake')
-  autocmd! BufWritePost * Neomake
-  let g:neomake_open_list = 2
-  let g:neomake_ruby_enabled_makers = ['rubocop']
-  let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
-  let g:neomake_html_enabled_makers = []
-endif
+" ale
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+let g:ale_linters = {
+      \ 'javascript': ['eslint', 'flow'],
+      \ 'ruby': ['rubocop']
+      \}
 
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 let s:opam_share_dir = system("opam config var share")
@@ -300,3 +296,5 @@ let g:deoplete#omni_patterns.ocaml = '.*'
 let g:deoplete#omni_patterns.ocaml = '[^ ,;\t\[()\]]'
 call deoplete#enable()
 
+" neosnippet
+let g:neosnippet#enable_completed_snippet = 1
