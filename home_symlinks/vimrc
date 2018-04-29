@@ -33,13 +33,13 @@ call dein#add('leafgarland/typescript-vim')
 call dein#add('Quramy/tsuquyomi')
 call dein#add('w0rp/ale')
 call dein#add('fatih/vim-go')
-call dein#add('Shougo/deoplete.nvim')
 call dein#add('wokalski/autocomplete-flow')
 call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('dart-lang/dart-vim-plugin')
-call dein#add('dart-lang/dart-vim-plugin')
 call dein#add('flowtype/vim-flow')
+call dein#add('autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' })
+call dein#add('junegunn/fzf')
 call dein#end()
 
 if dein#check_install()
@@ -83,6 +83,8 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 " hbsファイルにhtmlのシンタックスが効くように設定
 ""au BufNewFile,BufRead *.hbs set filetype=html
+
+au BufNewFile,BufRead *.es6 setf javascript
 
 " html5に対応
 let g:html5_event_handler_attributes_complete = 1
@@ -242,7 +244,7 @@ let g:ale_set_quickfix = 1
 let g:ale_open_list = 1
 let g:ale_linters = {
       \ 'javascript': ['eslint', 'flow'],
-      \ 'ruby': ['rubocop']
+      \ 'ruby': ['rubocop'],
       \}
 
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
@@ -312,3 +314,10 @@ if executable(local_flow)
   let g:flow#flowpath = local_flow
 endif
 nnoremap t :<C-u>:FlowType<CR>
+
+let g:LanguageClient_serverCommands = {
+    \ 'ruby': ['/Users/noguchimasato/src/lsp_test/lang'],
+    \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1

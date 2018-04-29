@@ -52,9 +52,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 export LC_CTYPE=UTF-8
-export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/noguchimasato/go/bin:/usr/local/bin"
+export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/noguchimasato/go/bin:/usr/local/bin:~/bin:"
 export PATH="$HOME/.pyenv/shims:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$PATH:`yarn global bin`"
 
 # User configuration
@@ -70,6 +69,9 @@ alias letsleep="osascript -e 'tell application \"Finder\" to sleep'"
 export PATH="$HOME/.ndenv/bin:$PATH"
 eval "$(ndenv init -)"
 
+export PATH="$HOME/.pyenv/bin:$PATH"'
+eval '"$(pyenv init -)"'
+eval "$(pyenv virtualenv-init -)"'
 export NODE_PATH=`npm root -g`
 export PATH=$PATH:`npm bin -g`
 export PGDATA=/usr/local/var/postgres
@@ -79,6 +81,7 @@ export RUST_SRC_PATH="$HOME/.ghq/github.com/rust-lang/rust/src/"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export XDG_CONFIG_HOME=$HOME/.config
+
 
 # android
 export ANDROID_HOME=~/Library/Android/sdk
@@ -135,3 +138,12 @@ export SDKMAN_DIR="/Users/masato_noguchi/.sdkman"
 [[ -s "/Users/masato_noguchi/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/masato_noguchi/.sdkman/bin/sdkman-init.sh"
 # OPAM configuration
 . ~/.opam/opam-init/init.sh
+
+export PATH=$HOME/bin:$PATH
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/noguchimasato/.ndenv/versions/v8.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/noguchimasato/.ndenv/versions/v8.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/noguchimasato/.ndenv/versions/v8.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/noguchimasato/.ndenv/versions/v8.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
