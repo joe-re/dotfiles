@@ -4,43 +4,46 @@ endif
 
 let s:dein_dir = expand('~/.config/nvim')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-set runtimepath^=~/.config/nvim/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-call dein#begin(s:dein_dir)
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+  call dein#add('~/.cache/dein')
 
-call dein#add(s:dein_dir)
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-call dein#add('Shougo/denite.nvim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('scrooloose/nerdtree')
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('jiangmiao/simple-javascript-indenter')
-call dein#add('tpope/vim-fugitive')
-call dein#add('kannokanno/previm')
-call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-surround')
-call dein#add('kana/vim-submode')
-call dein#add('othree/html5.vim')
-call dein#add('h1mesuke/vim-alignta')
-call dein#add('Xuyuanp/nerdtree-git-plugin')
-call dein#add('kchmck/vim-coffee-script')
-call dein#add('Shougo/vimfiler.vim')
-call dein#add('tpope/vim-rails')
-call dein#add('kien/ctrlp.vim')
-call dein#add('alvan/vim-closetag')
-call dein#add('basyura/unite-rails')
-call dein#add('leafgarland/typescript-vim')
-call dein#add('Quramy/tsuquyomi')
-call dein#add('w0rp/ale')
-call dein#add('fatih/vim-go')
-call dein#add('wokalski/autocomplete-flow')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('dart-lang/dart-vim-plugin')
-call dein#add('flowtype/vim-flow')
-call dein#add('autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' })
-call dein#add('junegunn/fzf')
-call dein#end()
+  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+  call dein#add('Shougo/denite.nvim')
+  call dein#add('Shougo/neomru.vim')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
+  call dein#add('jiangmiao/simple-javascript-indenter')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('kannokanno/previm')
+  call dein#add('tpope/vim-endwise')
+  call dein#add('tpope/vim-surround')
+  call dein#add('kana/vim-submode')
+  call dein#add('othree/html5.vim')
+  call dein#add('h1mesuke/vim-alignta')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
+  call dein#add('kchmck/vim-coffee-script')
+  call dein#add('Shougo/vimfiler.vim')
+  call dein#add('tpope/vim-rails')
+  call dein#add('kien/ctrlp.vim')
+  call dein#add('alvan/vim-closetag')
+  call dein#add('basyura/unite-rails')
+  call dein#add('leafgarland/typescript-vim')
+  call dein#add('Quramy/tsuquyomi')
+  call dein#add('w0rp/ale')
+  call dein#add('fatih/vim-go')
+  call dein#add('wokalski/autocomplete-flow')
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('dart-lang/dart-vim-plugin')
+  call dein#add('flowtype/vim-flow')
+  call dein#add('autozimu/LanguageClient-neovim', { 'do': 'bash install.sh', })
+  call dein#add('junegunn/fzf')
+  call dein#end()
+  call dein#save_state()
+endif
 
 if dein#check_install()
   call dein#install()
@@ -281,7 +284,7 @@ endfor
 nnoremap <silent> mec :<C-u>MerlinErrorCheck<CR>
 
 " ## end of OPAM user-setup addition for vim / base ## keep this line
-let g:python3_host_prog = expand('/usr/local/bin/python3')
+let g:python3_host_prog = expand('/Users/noguchimasato/.pyenv/shims/python3')
 
 " denite
 nnoremap [denite] <Nop>
@@ -317,6 +320,7 @@ nnoremap t :<C-u>:FlowType<CR>
 
 let g:LanguageClient_serverCommands = {
     \ 'ruby': ['/Users/noguchimasato/src/lsp_test/lang'],
+    \ 'sql': ['sql-language-server', 'up', '--debug', '--method', 'stdio'],
     \ }
 
 " Automatically start language servers.
