@@ -2,52 +2,76 @@ if &compatible
   set nocompatible
 endif
 
-let s:dein_dir = expand('~/.config/nvim')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+" let s:dein_dir = expand('~/.config/nvim')
+" let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-  call dein#add('~/.cache/dein')
+call plug#begin('~/.vim/plugged')
+Plug 'neovim/nvim-lspconfig'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'kana/vim-submode'
+Plug 'scrooloose/nerdtree'
+call plug#end()
 
-  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-  call dein#add('Shougo/denite.nvim')
-  call dein#add('Shougo/neomru.vim')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
-  call dein#add('jiangmiao/simple-javascript-indenter')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('kannokanno/previm')
-  call dein#add('tpope/vim-endwise')
-  call dein#add('tpope/vim-surround')
-  call dein#add('kana/vim-submode')
-  call dein#add('othree/html5.vim')
-  call dein#add('h1mesuke/vim-alignta')
-  call dein#add('Xuyuanp/nerdtree-git-plugin')
-  call dein#add('kchmck/vim-coffee-script')
-  call dein#add('Shougo/vimfiler.vim')
-  call dein#add('tpope/vim-rails')
-  call dein#add('kien/ctrlp.vim')
-  call dein#add('alvan/vim-closetag')
-  call dein#add('basyura/unite-rails')
-  call dein#add('leafgarland/typescript-vim')
-  call dein#add('Quramy/tsuquyomi')
-  call dein#add('w0rp/ale')
-  call dein#add('fatih/vim-go')
-  call dein#add('wokalski/autocomplete-flow')
-  call dein#add('Shougo/neosnippet')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('dart-lang/dart-vim-plugin')
-  call dein#add('flowtype/vim-flow')
-  call dein#add('autozimu/LanguageClient-neovim', { 'do': 'bash install.sh', })
-  call dein#add('junegunn/fzf')
-  call dein#end()
-  call dein#save_state()
-endif
+" lua <<EOF
+" require'nvim_lsp'.sqlls.setup{
+"   cmd = {"/Users/noguchimasato/.ghq/github.com/joe-re/sql-language-server/packages/server/dist/cli.js", "up", "--method", "stdio"};
+"   settings = {
+"     sqlLanguageServer = {
+"       lint = "hi"
+"     }
+"   }
+" }
+" EOF
+  " call dein#add('neovim/nvim-lspconfig')
+  " call dein#add('neoclide/coc.nvim', , {'do': 'yarn install --frozen-lockfile'})
+" if dein#load_state('~/.cache/dein')
+  " call dein#begin('~/.cache/dein')
+  " call dein#add('~/.cache/dein')
 
-if dein#check_install()
-  call dein#install()
-endif
+  " call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+  " call dein#add('Shougo/denite.nvim')
+  " call dein#add('Shougo/neomru.vim')
+  " call dein#add('scrooloose/nerdtree')
+  " call dein#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
+  " call dein#add('jiangmiao/simple-javascript-indenter')
+  " call dein#add('tpope/vim-fugitive')
+  " call dein#add('kannokanno/previm')
+  " call dein#add('tpope/vim-endwise')
+  " call dein#add('tpope/vim-surround')
+  " call dein#add('kana/vim-submode')
+  " call dein#add('othree/html5.vim')
+  " call dein#add('h1mesuke/vim-alignta')
+  " call dein#add('Xuyuanp/nerdtree-git-plugin')
+  " call dein#add('kchmck/vim-coffee-script')
+  " call dein#add('Shougo/vimfiler.vim')
+  " call dein#add('tpope/vim-rails')
+  " call dein#add('kien/ctrlp.vim')
+  " call dein#add('alvan/vim-closetag')
+  " call dein#add('basyura/unite-rails')
+  " call dein#add('leafgarland/typescript-vim')
+  " call dein#add('Quramy/tsuquyomi')
+  " call dein#add('w0rp/ale')
+  " call dein#add('wokalski/autocomplete-flow')
+  " call dein#add('Shougo/neosnippet')
+  " call dein#add('Shougo/neosnippet-snippets')
+  " call dein#add('dart-lang/dart-vim-plugin')
+  " call dein#add('flowtype/vim-flow')
+  " " call dein#add('autozimu/LanguageClient-neovim', { 'do': 'bash install.sh', })
+  " call dein#add('junegunn/fzf')
+  " call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+	" 				\ 'build': 'cd app & yarn install' })
+  " call dein#add('prabirshrestha/async.vim')
+  " call dein#add('prabirshrestha/vim-lsp')
+  " call dein#add('neovim/nvim-lspconfig')
+  " call dein#add('neoclide/coc.nvim', , {'do': 'yarn install --frozen-lockfile'})
+  " call dein#end()
+  " call dein#save_state()
+" endif
+
+" if dein#check_install()
+"   call dein#install()
+" endif
 
 filetype plugin indent on
 
@@ -297,11 +321,11 @@ nnoremap <silent> [denite]n :<C-u>Denite -resume -buffer-name=search-buffer-deni
 nnoremap <silent> [denite]p :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
 nnoremap <silent> [denite]m :<C-u>Denite file_mru<CR>
 
-" deoplete
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.ocaml = '.*'
-let g:deoplete#omni_patterns.ocaml = '[^ ,;\t\[()\]]'
-call deoplete#enable()
+" " deoplete
+" let g:deoplete#omni_patterns = {}
+" let g:deoplete#omni_patterns.ocaml = '.*'
+" let g:deoplete#omni_patterns.ocaml = '[^ ,;\t\[()\]]'
+" call deoplete#enable()
 
 " neosnippet
 let g:neosnippet#enable_completed_snippet = 1
@@ -318,10 +342,117 @@ if executable(local_flow)
 endif
 nnoremap t :<C-u>:FlowType<CR>
 
-let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['/Users/noguchimasato/src/lsp_test/lang'],
-    \ 'sql': ['sql-language-server', 'up', '--debug', '--method', 'stdio'],
-    \ }
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'sql-language-server',
+    \ 'cmd': {server_info->['sql-language-server', 'up', '--debug', '--method', 'stdio']},
+    \ 'whitelist': ['sql'],
+    \ })
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> <f2> <plug>(lsp-rename)
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
+
+" for asyncomplete.vim log
+let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+
+" let g:LanguageClient_serverCommands = {
+"     \ 'ruby': ['/Users/noguchimasato/src/lsp_test/lang'],
+"     \ 'sql': ['sql-language-server', 'up', '--debug', '--method', 'stdio'],
+"     \ }
 
 " Automatically start language servers.
-let g:LanguageClient_autoStart = 1
+" let g:LanguageClient_autoStart = 1
+
+
+" --- Markdown preview setting --- "
+" set to 1, nvim will open the preview window after entering the markdown buffer
+" default: 0
+let g:mkdp_auto_start = 0
+
+" set to 1, the nvim will auto close current preview window when change
+" from markdown buffer to another buffer
+" default: 1
+let g:mkdp_auto_close = 1
+
+" set to 1, the vim will refresh markdown when save the buffer or
+" leave from insert mode, default 0 is auto refresh markdown as you edit or
+" move the cursor
+" default: 0
+let g:mkdp_refresh_slow = 0
+
+" set to 1, the MarkdownPreview command can be use for all files,
+" by default it can be use in markdown file
+" default: 0
+let g:mkdp_command_for_global = 0
+
+" set to 1, preview server available to others in your network
+" by default, the server listens on localhost (127.0.0.1)
+" default: 0
+let g:mkdp_open_to_the_world = 0
+
+" use custom IP to open preview page
+" useful when you work in remote vim and preview on local browser
+" more detail see: https://github.com/iamcco/markdown-preview.nvim/pull/9
+" default empty
+let g:mkdp_open_ip = ''
+
+" specify browser to open preview page
+" default: ''
+let g:mkdp_browser = ''
+
+" set to 1, echo preview page url in command line when open preview page
+" default is 0
+let g:mkdp_echo_preview_url = 0
+
+" a custom vim function name to open preview page
+" this function will receive url as param
+" default is empty
+let g:mkdp_browserfunc = ''
+
+" options for markdown render
+" mkit: markdown-it options for render
+" katex: katex options for math
+" uml: markdown-it-plantuml options
+" maid: mermaid options
+" disable_sync_scroll: if disable sync scroll, default 0
+" sync_scroll_type: 'middle', 'top' or 'relative', default value is 'middle'
+"   middle: mean the cursor position alway show at the middle of the preview page
+"   top: mean the vim top viewport alway show at the top of the preview page
+"   relative: mean the cursor position alway show at the relative positon of the preview page
+" hide_yaml_meta: if hide yaml metadata, default is 1
+" sequence_diagrams: js-sequence-diagrams options
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {}
+    \ }
+
+" use a custom markdown style must be absolute path
+let g:mkdp_markdown_css = ''
+
+" use a custom highlight style must absolute path
+let g:mkdp_highlight_css = ''
+
+" use a custom port to start server or random for empty
+let g:mkdp_port = ''
+
+" preview page title
+" ${name} will be replace with the file name
+let g:mkdp_page_title = '?${name}?'
