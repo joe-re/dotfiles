@@ -1,0 +1,23 @@
+# Theme Settings
+theme = "Solarized Dark Higher Contrast"
+
+# Font Settings
+font-family = 'HackGen Console NF'
+font-family = JetBrains Mono Nerd Font
+font-size = 14
+font-feature = "-calt"
+font-feature = "-dlig"
+font-feature = "-liga"
+
+# Window Settings
+macos-titlebar-style = "transparent"
+window-padding-balance = true
+window-padding-x = 0
+window-padding-y = 0
+window-theme = "ghostty"
+background-blur-radius = 2
+background-opacity = 1
+
+# TERM
+term = "xterm-256color"
+
