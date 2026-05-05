@@ -1,0 +1,50 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+opacity = 1.0
+padding = { x = 0, y = 0 }
+
+[font]
+size = 14
+
+[font.normal]
+family = "HackGen Console NF"
+style = "Regular"
+
+[font.bold]
+family = "HackGen Console NF"
+style = "Bold"
+
+[font.italic]
+family = "HackGen Console NF"
+style = "Regular"
+
+[font.bold_italic]
+family = "HackGen Console NF"
+style = "Bold"
+
+# Solarized Dark Higher Contrast
+[colors.primary]
+background = "#001e26"
+foreground = "#9eacac"
+
+[colors.normal]
+black   = "#002731"
+red     = "#d01b24"
+green   = "#728905"
+yellow  = "#a57705"
+blue    = "#2075c7"
+magenta = "#c61b6e"
+cyan    = "#259185"
+white   = "#e9e2cb"
+
+[colors.bright]
+black   = "#001e26"
+red     = "#bd3612"
+green   = "#465a61"
+yellow  = "#52676f"
+blue    = "#708183"
+magenta = "#5856b9"
+cyan    = "#81908f"
+white   = "#fcf4dc"
