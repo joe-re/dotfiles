@@ -1,5 +1,4 @@
 [core]
-  excludesfile = /opt/boxen/config/git/gitignore
   editor = vim
   quotepath = false
   precomposeunicode = true
@@ -32,12 +31,6 @@
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   # rmコマンドを使わずに削除してしまったファイルをgit rmする
   rmd = "!f() { git ls-files --deleted ; }; git rm `f`"
-  fs = flow feature start
-  ff = flow feature finish -kr
-  rs = flow release start
-  rf = flow release finish -k
-  hs = flow hotfix start
-  hf = flow hotfix finish -k
   # merge済みのブランチを消す
 	clean-branches = !git branch --merged | grep -v \\* | xargs -I {} git branch -d {}
   remote-add = "!f() { git config --get remote.origin.url | sed -e s/`git config user.name`/$1/ | xargs git remote add upstream; }; f"
@@ -46,20 +39,6 @@
 [push]
   default = simple
 
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
-
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
-
 [ghq]
   root = ~/.ghq
   root = ~/.go/src
-
-[mergetool "mergepbx"]
-    cmd = mergepbx "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"
-[merge "mergepbx"]
-    name = XCode project files merger
-    driver = /usr/local/bin/mergepbx %O %A %B
