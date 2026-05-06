@@ -27,7 +27,7 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
 
 # Thumbnails
 ._*
@@ -91,3 +91,7 @@ Session.vim
 
 
 _neovim_installer.sh
+
+# Nix build artifacts (symlinks into /nix/store)
+nix/result
+nix/result-*
