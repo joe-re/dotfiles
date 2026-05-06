@@ -1,3 +1,1 @@
-# Paste public keys (e.g. from macOS), one per line.
-# Example:
-# ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAA... user@mac
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGo8mYh4AZMuRFoHlwXz8DRAYZydGakDaKN/KlpvnSGC joe.tialtngo@gmail.com
