@@ -32,5 +32,11 @@ in
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/tmux";
   };
 
+  # Claude Code looks for skills under ~/.claude/skills (not under XDG).
+  home.file = {
+    ".claude/skills".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/claude/skills";
+  };
+
   programs.home-manager.enable = true;
 }
