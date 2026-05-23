@@ -30,6 +30,8 @@ in
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/git";
     "tmux".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/tmux";
+    "nvim".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/nvim";
   };
 
   # Claude Code looks for skills under ~/.claude/skills (not under XDG).
