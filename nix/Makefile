@@ -3,8 +3,13 @@
 .DEFAULT_GOAL := help
 
 # Use absolute path so `sudo` (which drops nix from PATH via secure_path) can find it.
-NIX := /nix/var/nix/profiles/default/bin/nix
+NIX_BIN := /nix/var/nix/profiles/default/bin
+NIX := $(NIX_BIN)/nix
 NIX_FLAGS := --extra-experimental-features 'nix-command flakes'
+
+# home-manager (and other Nix tools it invokes) re-exec `nix` via PATH lookup,
+# so make sure the Nix profile bin is on PATH for every recipe.
+export PATH := $(NIX_BIN):$(PATH)
 
 # Pick the flake entry by `hostname -s`.
 # Override with `make home-switch HOST=macbook` to target another host.
@@ -26,7 +31,10 @@ install:
 	curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
 
 # === home-manager (user-scope: packages + dotfiles) ===
+# home-manager writes its profile under $XDG_STATE_HOME/nix/profiles on
+# multi-user Nix installs; create it up front so the first switch succeeds.
 home-switch:
+	mkdir -p "$${XDG_STATE_HOME:-$$HOME/.local/state}/nix/profiles"
 	$(NIX) run $(NIX_FLAGS) github:nix-community/home-manager -- \
 	  switch --flake '.#$(HOST)' -b backup
 
