@@ -1,4 +1,4 @@
-local servers = { "vtsls" }
+local servers = { "vtsls", "eslint" }
 
 return {
   {
@@ -19,6 +19,14 @@ return {
         ensure_installed = servers,
       })
       vim.lsp.enable(servers)
+
+      vim.diagnostic.config({
+        virtual_text = { spacing = 2, prefix = "●" },
+        severity_sort = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+      })
     end,
   },
 }

@@ -11,6 +11,7 @@ return {
     { "<leader>fb", function() require("telescope.builtin").buffers() end,    desc = "Telescope buffers" },
     { "<leader>fh", function() require("telescope.builtin").help_tags() end,  desc = "Telescope help tags" },
     { "<leader>fk", function() require("telescope.builtin").keymaps() end,    desc = "Telescope keymaps" },
+    { "<leader>fd", function() require("telescope.builtin").diagnostics() end, desc = "Telescope diagnostics" },
   },
   config = function()
     local telescope = require("telescope")
