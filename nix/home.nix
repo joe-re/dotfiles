@@ -14,6 +14,8 @@ in
     neovim
     ghq
     tmux
+    ripgrep   # telescope live_grep
+    fd        # telescope find_files
   ]
   ++ lib.optionals pkgs.stdenv.isDarwin [
     # Add macOS-only packages here
