@@ -10,4 +10,12 @@ return {
   keys = {
     { "<leader>e", "<Cmd>Neotree toggle<CR>", desc = "Toggle Neo-tree" },
   },
+  opts = {
+    filesystem = {
+      follow_current_file = {
+        enabled = true,
+        leave_dirs_open = false,
+      },
+    },
+  },
 }
