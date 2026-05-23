@@ -1,0 +1,2 @@
+alias vim=nvim
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local

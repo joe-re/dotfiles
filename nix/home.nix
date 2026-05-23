@@ -33,9 +33,12 @@ in
   };
 
   # Claude Code looks for skills under ~/.claude/skills (not under XDG).
+  # zshrc is symlinked here too; ~/.zshrc.local is left untracked for per-host overrides.
   home.file = {
     ".claude/skills".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/claude/skills";
+    ".zshrc".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/zsh/zshrc";
   };
 
   programs.home-manager.enable = true;
