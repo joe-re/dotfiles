@@ -22,5 +22,19 @@ return {
         hide_gitignored = false,
       },
     },
+    window = {
+      mappings = {
+        ["Y"] = function(state)
+          local path = state.tree:get_node():get_id()
+          vim.fn.setreg("+", path)
+          vim.notify("Copied: " .. path)
+        end,
+        ["gy"] = function(state)
+          local path = vim.fn.fnamemodify(state.tree:get_node():get_id(), ":.")
+          vim.fn.setreg("+", path)
+          vim.notify("Copied: " .. path)
+        end,
+      },
+    },
   },
 }
