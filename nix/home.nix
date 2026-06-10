@@ -16,6 +16,7 @@ in
     tmux
     ripgrep   # telescope live_grep
     fd        # telescope find_files
+    fzf       # fuzzy finder (Ctrl+T / Ctrl+R / Alt+C)
   ]
   ++ lib.optionals pkgs.stdenv.isDarwin [
     # Add macOS-only packages here

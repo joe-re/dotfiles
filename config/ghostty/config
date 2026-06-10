@@ -18,6 +18,11 @@ window-theme = "ghostty"
 background-blur-radius = 2
 background-opacity = 1
 
+# Keyboard
+# Treat Option as Alt/Meta so terminal apps (fzf Alt+C など) receive Esc+key
+# instead of composed characters (Option+C → ç).
+macos-option-as-alt = true
+
 # TERM
 term = "xterm-256color"
 

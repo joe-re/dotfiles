@@ -1,2 +1,7 @@
 alias vim=nvim
+eval "$(mise activate zsh)"
+
+# fzf key bindings & completion (Ctrl+T / Ctrl+R / Alt+C)
+command -v fzf >/dev/null && source <(fzf --zsh)
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
