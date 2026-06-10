@@ -11,6 +11,15 @@ return {
     { "<leader>e", "<Cmd>Neotree toggle<CR>", desc = "Toggle Neo-tree" },
   },
   opts = {
+    sources = { "filesystem", "git_status", "buffers" },
+    source_selector = {
+      winbar = true,
+      sources = {
+        { source = "filesystem", display_name = " 󰉓 Files " },
+        { source = "git_status", display_name = " 󰊢 Git " },
+        { source = "buffers", display_name = " 󰈚 Buffers " },
+      },
+    },
     filesystem = {
       follow_current_file = {
         enabled = true,
