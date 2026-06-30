@@ -4,4 +4,10 @@ eval "$(mise activate zsh)"
 # fzf key bindings & completion (Ctrl+T / Ctrl+R / Alt+C)
 command -v fzf >/dev/null && source <(fzf --zsh)
 
+# Limit Alt+C (cd widget) to directories directly under the current dir
+export FZF_ALT_C_COMMAND='fd --type d --max-depth 1 --hidden --exclude .git'
+
+# Claude Code: disable alternate screen for tmux scrollback compatibility
+export CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
