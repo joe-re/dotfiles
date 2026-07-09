@@ -10,4 +10,23 @@ export FZF_ALT_C_COMMAND='fd --type d --max-depth 1 --hidden --exclude .git'
 # Claude Code: disable alternate screen for tmux scrollback compatibility
 export CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1
 
+# herdr: name the pane after the current directory when launching an agent
+if [[ -n "$HERDR_PANE_ID" ]]; then
+  _herdr_rename_on_agent() {
+    case "${1%% *}" in
+      claude|codex)
+        command herdr pane rename "$HERDR_PANE_ID" "${PWD:t}" >/dev/null 2>&1
+        ;;
+    esac
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook preexec _herdr_rename_on_agent
+fi
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/masatonoguchi/Desktop/google-cloud-sdk 2/path.zsh.inc' ]; then . '/Users/masatonoguchi/Desktop/google-cloud-sdk 2/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/masatonoguchi/Desktop/google-cloud-sdk 2/completion.zsh.inc' ]; then . '/Users/masatonoguchi/Desktop/google-cloud-sdk 2/completion.zsh.inc'; fi

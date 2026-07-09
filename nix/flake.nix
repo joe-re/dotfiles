@@ -13,13 +13,25 @@
       url = "github:numtide/system-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    crit = {
+      url = "github:tomasz-tomczyk/crit";
+    };
+
+    herdr = {
+      url = "github:ogulcancelik/herdr";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, system-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, system-manager, crit, herdr, ... }:
     let
       mkHome = { system, username, homeDirectory }:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { inherit system; };
+          extraSpecialArgs = {
+            critPkg = crit.packages.${system}.default;
+            herdrPkg = herdr.packages.${system}.default;
+          };
           modules = [
             ./home.nix
             {

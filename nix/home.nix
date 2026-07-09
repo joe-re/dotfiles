@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, critPkg, herdrPkg, ... }:
 
 let
   dotfiles = "${config.home.homeDirectory}/dotfiles";
@@ -17,6 +17,9 @@ in
     ripgrep   # telescope live_grep
     fd        # telescope find_files
     fzf       # fuzzy finder (Ctrl+T / Ctrl+R / Alt+C)
+    marp-cli  # markdown presentation converter (used by marp.nvim)
+    critPkg   # local-first code review UI for AI agents
+    herdrPkg  # terminal workspace manager for AI coding agents
   ]
   ++ lib.optionals pkgs.stdenv.isDarwin [
     # Add macOS-only packages here
@@ -35,6 +38,10 @@ in
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/tmux";
     "nvim".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/nvim";
+    # herdr writes logs/sockets/session state into ~/.config/herdr at runtime,
+    # so link only config.toml instead of the whole directory.
+    "herdr/config.toml".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/herdr/config.toml";
   };
 
   # Claude Code looks for skills under ~/.claude/skills (not under XDG).
