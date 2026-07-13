@@ -49,6 +49,8 @@ in
   home.file = {
     ".claude/skills".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/claude/skills";
+    ".claude/commands".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/claude/commands";
     ".zshrc".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/zsh/zshrc";
   };
