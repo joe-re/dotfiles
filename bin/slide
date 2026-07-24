@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+# slide — lt1テーマ（Marp）でスライドを作成・ビルドするラッパー
+set -euo pipefail
+
+THEME="${SLIDE_THEME:-$HOME/dotfiles/config/marp/themes/lt1.css}"
+
+usage() {
+  cat <<'EOF'
+slide — lt1テーマ（Marp）でスライドを作成・ビルドする
+
+Usage:
+  slide new <file.md> [タイトル]   テンプレートから新規スライドを作成
+  slide preview <file.md>          プレビューサーバを起動（ブラウザで開く）
+  slide watch <file.md>            変更を監視してHTMLを再ビルド
+  slide html <file.md> [-o out]    HTMLを出力（デフォルト: <file>.html）
+  slide pdf <file.md> [-o out]     PDFを出力（デフォルト: <file>.pdf）
+  slide theme                      テーマファイルのパスを表示
+
+Env:
+  SLIDE_THEME   テーマCSSのパスを上書き
+EOF
+}
+
+require_file() {
+  [ -f "$1" ] || { echo "error: ファイルがありません: $1" >&2; exit 1; }
+}
+
+out_path() { # <input> <default-ext> <maybe -o out>
+  local input=$1 ext=$2; shift 2
+  if [ "${1:-}" = "-o" ] && [ -n "${2:-}" ]; then
+    echo "$2"
+  else
+    echo "${input%.md}.$ext"
+  fi
+}
+
+cmd=${1:-}
+case "$cmd" in
+  new)
+    file=${2:?"usage: slide new <file.md> [タイトル]"}
+    title=${3:-タイトル}
+    [ -e "$file" ] && { echo "error: すでに存在します: $file" >&2; exit 1; }
+    cat > "$file" <<EOF
+---
+marp: true
+theme: lt1
+---
+
+<!-- _class: cover -->
+
+<div class="book-box">
+
+<p class="book-title">${title}</p>
+
+<p class="book-subtitle">サブタイトル</p>
+
+<div class="book-meta">
+<span class="author">@joe_re</span>
+</div>
+
+</div>
+
+---
+
+## 目次
+
+1. セクション1
+2. セクション2
+
+---
+
+<!-- _class: section -->
+
+<p class="index">01</p>
+
+## セクション1
+
+---
+
+## 通常スライド
+
+- 1スライド1メッセージ
+- 強調は **bold**（ピンクで表示）
+
+---
+
+<!-- _class: lead -->
+
+<p class="statement">伝えたい一言をここに</p>
+
+<p class="note">補足があればここに</p>
+EOF
+    echo "created: $file"
+    echo "preview: slide preview $file"
+    ;;
+  preview)
+    require_file "${2:?"usage: slide preview <file.md>"}"
+    exec marp -s "$2" --theme "$THEME"
+    ;;
+  watch)
+    require_file "${2:?"usage: slide watch <file.md>"}"
+    exec marp -w "$2" --theme "$THEME" --html -o "${2%.md}.html"
+    ;;
+  html)
+    require_file "${2:?"usage: slide html <file.md> [-o out]"}"
+    out=$(out_path "$2" html "${3:-}" "${4:-}")
+    exec marp "$2" --theme "$THEME" --html -o "$out"
+    ;;
+  pdf)
+    require_file "${2:?"usage: slide pdf <file.md> [-o out]"}"
+    out=$(out_path "$2" pdf "${3:-}" "${4:-}")
+    CHROME_PATH="${CHROME_PATH:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}" \
+      exec marp "$2" --theme "$THEME" --allow-local-files --pdf -o "$out"
+    ;;
+  theme)
+    echo "$THEME"
+    ;;
+  -h|--help|help|"")
+    usage
+    ;;
+  *)
+    echo "error: 不明なサブコマンド: $cmd" >&2
+    usage >&2
+    exit 1
+    ;;
+esac

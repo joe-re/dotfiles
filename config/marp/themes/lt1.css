@@ -1,0 +1,233 @@
+/* @theme lt1 */
+/* joe_re氏のSpeaker Deck (sintyoku_doudesuka_in_the_2017) の
+   フォーマット（クリーム背景 / ピンク・オリーブの2色使い / 丸ゴシック太字 /
+   枠線・カード・グラデーション無しのフラットデザイン）に揃えたテーマ */
+@import 'default';
+
+:root {
+  --bg: #fdf6e3;      /* クリーム背景 */
+  --pink: #d12d7e;    /* 強調・パンチライン */
+  --olive: #849a00;   /* 見出し・地の文の強調 */
+  --ink: #5a6d71;     /* 本文（ティールグレー） */
+  --muted: #7c9296;   /* 補足テキスト */
+}
+
+section {
+  font-family: 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', 'Yu Gothic', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--ink);
+  background: var(--bg);
+  padding: 64px 80px;
+  line-height: 1.7;
+}
+
+/* ヘッダー・フッター・ページ番号は使わない（元フォーマットに合わせる） */
+header, footer, section::after { display: none; }
+
+h1, h2, h3 { font-weight: 800; letter-spacing: 0.01em; }
+h1 { font-size: 44px; color: var(--pink); }
+h2 { font-size: 38px; color: var(--olive); text-align: center; margin-bottom: 32px; }
+h3 { font-size: 26px; color: var(--olive); }
+
+strong { color: var(--pink); font-weight: 800; }
+a { color: var(--olive); text-decoration: underline; }
+
+ul, ol { margin-left: 4px; }
+li { margin: 10px 0; }
+li::marker { color: var(--olive); font-weight: 800; }
+
+/* 引用は枠を付けず、地の文として強調する */
+blockquote {
+  border: none;
+  background: none;
+  margin: 20px 0;
+  padding: 0;
+  color: var(--pink);
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+}
+blockquote::before, blockquote::after { content: none; }
+blockquote p { margin: 6px 0; }
+
+/* コードブロックは最小限の装飾に留める */
+pre {
+  background: #f2ead0;
+  border-radius: 8px;
+  font-size: 20px;
+  box-shadow: none;
+  color: #3f4d50;
+}
+code { font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+:not(pre) > code {
+  background: #f2ead0;
+  color: var(--olive);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: 700;
+}
+
+/* ===== タイトルスライド ===== */
+section.title {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+section.title h1 {
+  font-size: 54px;
+  line-height: 1.35;
+  color: var(--pink);
+}
+section.title .tagline {
+  font-size: 26px;
+  color: var(--olive);
+  font-weight: 800;
+  margin-top: 8px;
+}
+section.title .meta {
+  margin-top: 44px;
+  color: var(--muted);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.9;
+}
+
+/* ===== 表紙フォーマット（書籍タイトル風） =====
+   「これからの『正義』の話をしよう」ハヤカワ文庫版カバーの
+   タイポグラフィ（白背景・黒の極太ゴシックを積み上げる構成）を
+   タイトルスライドに限定して適用する */
+section.cover {
+  background: var(--bg);
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 40px;
+}
+section.cover .book-box {
+  box-sizing: border-box;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  padding: 56px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+}
+section.cover .book-title {
+  font-family: '-apple-system', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 1.22;
+  color: #111111;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+section.cover .book-title mark {
+  background: none;
+  color: #111111;
+}
+section.cover .book-subtitle {
+  margin-top: 28px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111111;
+}
+section.cover .book-meta {
+  margin-top: auto;
+  padding-top: 56px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+section.cover .book-meta .author {
+  font-size: 30px;
+  font-weight: 900;
+  color: #111111;
+}
+section.cover .book-meta .publisher {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* ===== セクション区切り（大きな一言ステートメント） ===== */
+section.section {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+section.section .index {
+  color: var(--muted);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+section.section h2 {
+  font-size: 50px;
+  color: var(--pink);
+  border: none;
+  margin: 0;
+}
+
+/* ===== 一言ステートメントスライド（lead） ===== */
+section.lead {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+section.lead p.statement {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--pink);
+  line-height: 1.5;
+  margin: 0;
+}
+section.lead p.note {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* ===== 2カラム（枠無しのプレーンな並び） ===== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  text-align: left;
+}
+
+/* 手順・工程の矢印表現（枠無し） */
+.flow {
+  text-align: center;
+  font-size: 28px;
+  color: var(--olive);
+  font-weight: 800;
+  margin: 22px 0;
+}
+
+/* 補足の小さいテキスト */
+.note {
+  color: var(--muted);
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* 画像の中央寄せ */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center img {
+  border-radius: 6px;
+}

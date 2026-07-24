@@ -10,6 +10,9 @@ export FZF_ALT_C_COMMAND='fd --type d --max-depth 1 --hidden --exclude .git'
 # Claude Code: disable alternate screen for tmux scrollback compatibility
 export CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1
 
+# dotfiles-managed scripts (slide etc.)
+export PATH="$HOME/dotfiles/bin:$PATH"
+
 # herdr: name the pane after the current directory when launching an agent
 if [[ -n "$HERDR_PANE_ID" ]]; then
   _herdr_rename_on_agent() {

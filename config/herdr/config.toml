@@ -1,3 +1,4 @@
+onboarding = false
 [keys]
 prefix = "ctrl+t"
 
@@ -6,3 +7,11 @@ key = "prefix+shift+b"
 type = "shell"
 command = "\"$HERDR_BIN_PATH\" pane move \"$HERDR_ACTIVE_PANE_ID\" --new-tab --focus"
 description = "break pane into new tab"
+
+[experimental]
+pane_history = true
+switch_ascii_input_source_in_prefix = true
+
+[theme]
+name = "solarized"
+auto_switch = false
