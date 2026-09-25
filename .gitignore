@@ -95,3 +95,9 @@ _neovim_installer.sh
 # Nix build artifacts (symlinks into /nix/store)
 nix/result
 nix/result-*
+
+# Claude skills managed outside dotfiles (org sync / symlinks into ~/.agents/skills)
+config/claude/skills/synced/
+config/claude/skills/autofix
+config/claude/skills/code-review
+config/claude/skills/langfuse
