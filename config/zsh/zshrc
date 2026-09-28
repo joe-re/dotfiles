@@ -14,8 +14,8 @@ wt() {
   [[ -n $dir ]] && cd "$dir"
 }
 
-# Claude Code: disable alternate screen for tmux scrollback compatibility
-export CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1
+# Claude Code: use fullscreen TUI (alternate screen, flicker-free rendering) by default
+export CLAUDE_CODE_NO_FLICKER=1
 
 # dotfiles-managed scripts (slide etc.)
 export PATH="$HOME/dotfiles/bin:$PATH"
