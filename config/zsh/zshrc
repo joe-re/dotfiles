@@ -14,6 +14,13 @@ wt() {
   [[ -n $dir ]] && cd "$dir"
 }
 
+# Pick a ghq-managed repository with fzf and cd into it (optional arg = initial query)
+g() {
+  local dir
+  dir=$(ghq list -p | fzf --height 40% --reverse --query="$1" --preview 'ls -A {}') || return
+  [[ -n $dir ]] && cd "$dir"
+}
+
 # Claude Code: use fullscreen TUI (alternate screen, flicker-free rendering) by default
 export CLAUDE_CODE_NO_FLICKER=1
 
